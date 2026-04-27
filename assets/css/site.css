@@ -172,6 +172,7 @@ em, .italic-serif { font-family: var(--font-serif); font-style: italic; font-wei
   color: var(--fg2);
 }
 .nav-pill .brand img { height: 22px; width: auto; }
+.nav-pill .brand img[src*="tspec-logo"] { height: 46px; min-height: 46px; }
 .nav-pill .brand .x { color: var(--accent); font-weight: 700; }
 .nav-pill .links {
   display: flex; gap: 24px;
