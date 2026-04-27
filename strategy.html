@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strategy &amp; Scope · gloWWWup × TSPEC</title>
+  <meta name="description"
+    content="The dual-customer-journey homepage strategy, full sitemap, deliverables, and platform recommendation for the TSPEC redesign.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .page-head {
+      padding: clamp(48px, 6vw, 96px) 0 clamp(40px, 5vw, 64px);
+    }
+
+    .page-head .eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-geist);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+    }
+
+    .page-head .eyebrow-row a:hover {
+      color: var(--accent);
+    }
+
+    .page-head h1 {
+      font-size: clamp(48px, 9vw, 120px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      margin: 0 0 28px;
+      max-width: 14ch;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .page-head h1 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* The two journeys */
+    .journeys-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .journeys-head {
+      margin-bottom: clamp(32px, 4vw, 56px);
+    }
+
+    .journeys-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 16ch;
+      margin-top: 16px;
+    }
+
+    .journeys-head h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .journey-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: clamp(28px, 3vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .journey-card.dark {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      border-color: var(--border-dark);
+    }
+
+    .journey-card .num {
+      font-family: var(--font-geist);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      color: var(--accent);
+    }
+
+    .journey-card h3 {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .journey-card h3 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .journey-card .who {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg2);
+      padding: 16px 18px;
+      background: var(--bg);
+      border-radius: var(--r-md);
+    }
+
+    .journey-card.dark .who {
+      background: rgba(255, 255, 255, .05);
+      color: var(--fg-on-dark-mute);
+    }
+
+    .journey-card .who strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .journey-card.dark .who strong {
+      color: var(--accent);
+    }
+
+    .journey-card ul li {
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--fg2);
+    }
+
+    .journey-card.dark ul li {
+      border-top-color: var(--border-dark);
+      color: var(--fg-on-dark-mute);
+    }
+
+    .journey-card ul li:first-child {
+      border-top: none;
+    }
+
+    .journey-card ul li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .journey-card .cta-snippet {
+      margin-top: auto;
+      padding: 16px 20px;
+      border-radius: var(--r-md);
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .journey-card .cta-snippet .lab {
+      font-family: var(--font-geist);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .8;
+    }
+
+    @media (max-width: 900px) {
+      .journey-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Homepage anatomy */
+    .anatomy-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+      background: var(--bg-alt);
+    }
+
+    .anatomy-head {
+      margin-bottom: clamp(32px, 4vw, 56px);
+    }
+
+    .anatomy-head h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 22ch;
+      margin-top: 16px;
+    }
+
+    .anatomy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .anatomy-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 80px 1fr 1.4fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .anatomy-row .ord {
+      font-family: var(--font-geist);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+
+    .anatomy-row h5 {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .anatomy-row .role {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--fg3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .anatomy-row p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg2);
+    }
+
+    @media (max-width: 760px) {
+      .anatomy-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px;
+      }
+
+      .anatomy-row .ord {
+        display: none;
+      }
+    }
+
+    /* Sitemap */
+    .sitemap-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .sitemap-head {
+      margin-bottom: 48px;
+    }
+
+    .sitemap-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 16ch;
+      margin-top: 16px;
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .sm-col {
+      background: var(--surface);
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sm-col.accent {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+    }
+
+    .sm-col.accent .label {
+      color: var(--accent);
+    }
+
+    .sm-col.accent .count {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .sm-col.accent ul li {
+      color: var(--fg-on-dark-mute);
+      border-top-color: var(--border-dark);
+    }
+
+    .sm-col .label {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .sm-col h5 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+    }
+
+    .sm-col .count {
+      font-family: var(--font-geist);
+      font-size: 12px;
+      color: var(--fg3);
+    }
+
+    .sm-col ul li {
+      padding: 8px 0;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--fg2);
+      display: flex;
+      gap: 8px;
+    }
+
+    .sm-col ul li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .sm-col ul li:first-child {
+      border-top: none;
+      padding-top: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .sitemap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .sitemap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sm-col {
+        padding: 24px;
+      }
+    }
+
+    /* Deliverables */
+    .deliv-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+    }
+
+    .deliv-head {
+      margin-bottom: 48px;
+    }
+
+    .deliv-head h2 {
+      color: var(--fg-on-dark);
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 18ch;
+      margin-top: 16px;
+    }
+
+    .deliv-head h2 .accent {
+      color: var(--accent);
+    }
+
+    .deliv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .deliv-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--r-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 200px;
+    }
+
+    .deliv-card .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .deliv-card h5 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      color: var(--fg-on-dark);
+    }
+
+    .deliv-card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg-on-dark-mute);
+      margin-top: auto;
+    }
+
+    @media (max-width: 1100px) {
+      .deliv-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .deliv-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Platform recommendation */
+    .platform-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: start;
+    }
+
+    .platform-grid h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 14ch;
+    }
+
+    .platform-grid h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .platform-pick {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: clamp(28px, 3vw, 40px);
+    }
+
+    .platform-pick .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .platform-pick h3 {
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .platform-pick>p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--fg2);
+      margin-bottom: 24px;
+    }
+
+    .reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .reason {
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+    }
+
+    .reason .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .reason h6 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      margin-bottom: 6px;
+    }
+
+    .reason p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg2);
+    }
+
+    @media (max-width: 900px) {
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Tech checklist */
+    .tech-block {
+      padding: clamp(48px, 6vw, 96px) 0;
+      background: var(--bg-alt);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 64px;
+    }
+
+    .tech-grid .row {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .tech-grid .row:first-child,
+    .tech-grid .row:nth-child(2) {
+      border-top: none;
+    }
+
+    .tech-grid .check {
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .tech-grid h6 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 4px;
+    }
+
+    .tech-grid p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg2);
+    }
+
+    @media (max-width: 760px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CTA */
+    .next-cta {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      padding: clamp(64px, 8vw, 120px) 0;
+    }
+
+    .next-cta h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      color: var(--fg-on-dark);
+      max-width: 18ch;
+      margin-bottom: 24px;
+    }
+
+    .next-cta h2 .accent {
+      color: var(--accent);
+    }
+
+    .next-cta .lede {
+      color: var(--fg-on-dark-mute);
+      max-width: 60ch;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="shell">
+    <nav class="nav-pill">
+      <div class="brand">
+        <img src="assets/img/glowwwup-wordmark.png" alt="gloWWWup">
+        <span class="x">×</span>
+        <span>TSPEC</span>
+      </div>
+      <div class="links">
+        <a href="index.html">Cover</a>
+        <a href="partnership.html">Partnership</a>
+        <a href="strategy.html" class="active">Strategy</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="portfolio.html">Portfolio</a>
+      </div>
+      <a href="pricing.html" class="cta">Continue →</a>
+    </nav>
+  </header>
+
+  <!-- ── PAGE HEAD ── -->
+  <section class="page-head shell">
+    <div class="eyebrow-row">
+      <span><a href="partnership.html">← Partnership</a></span>
+      <span>02 / 05 · Strategy &amp; Scope</span>
+      <span><a href="pricing.html">Pricing →</a></span>
+    </div>
+    <h1>Two journeys. One <span class="ital">site.</span></h1>
+    <p class="lede" style="max-width: 60ch;">
+      The strategic centerpiece of the RFP is a homepage that doesn't make the visitor guess. A facilities manager and a
+      CFO arrive at <em>tspec.com</em> with completely different problems. The new site sends them down completely
+      different paths within ten seconds.
+    </p>
+  </section>
+
+  <!-- ── DUAL JOURNEYS ── -->
+  <section class="journeys-block shell">
+    <div class="journeys-head">
+      <p class="eyebrow">3.1 · The dual-journey homepage</p>
+      <h2>One hero. <span class="ital">Two doors.</span></h2>
+    </div>
+
+    <div class="journey-grid">
+
+      <!-- Journey 1 -->
+      <div class="journey-card">
+        <span class="num">Journey 01.</span>
+        <h3>Structured <span class="ital">Cabling.</span></h3>
+        <div class="who">
+          <strong>Who walks in:</strong> Facilities manager, project manager, IT director with a cabling project on the
+          table — design/build, AV, surveillance, wireless. Often working under a deadline. Often pricing two or three
+          vendors at once.
+        </div>
+        <ul>
+          <li>Service overview tile: Design/Build · CATV · A/V · Wireless · Surveillance</li>
+          <li>RCDD &amp; BICSI certifications above the fold — not in a footer</li>
+          <li>Project gallery: real photography from completed installations</li>
+          <li>Markets-served strip: Government, Education, Commercial</li>
+          <li>Inline lead-capture form scoped to the cabling buyer</li>
+        </ul>
+        <div class="cta-snippet">
+          <span>Request a Site Survey</span>
+          <span class="lab">Primary CTA</span>
+        </div>
+      </div>
+
+      <!-- Journey 2 -->
+      <div class="journey-card dark">
+        <span class="num">Journey 02.</span>
+        <h3>Managed IT <span class="ital">Services.</span></h3>
+        <div class="who">
+          <strong>Who walks in:</strong> Business owner, IT director, or operations lead carrying real pain — downtime,
+          ransomware fear, a help-desk that doesn't scale. Looking for a partner, not a transaction.
+        </div>
+        <ul>
+          <li>MSP service-tier comparison: support plans at a glance</li>
+          <li>Pain-point copy: downtime, security, scalability, compliance</li>
+          <li>Testimonials with named clients and outcomes (not stock quotes)</li>
+          <li>Trust strip: GSA contract #GS-35F-0180M, response-time stat</li>
+          <li>Calendly-powered booking widget — no form gating required</li>
+        </ul>
+        <div class="cta-snippet">
+          <span>Schedule a Free IT Assessment</span>
+          <span class="lab">Primary CTA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOMEPAGE ANATOMY ── -->
+  <section class="anatomy-block">
+    <div class="shell">
+      <div class="anatomy-head">
+        <p class="eyebrow">The homepage in order</p>
+        <h2>Eight blocks, top to bottom. Every block earns its place.</h2>
+      </div>
+
+      <div class="anatomy-stack">
+        <div class="anatomy-row">
+          <span class="ord">01.</span>
+          <div>
+            <h5>Hero — split decision</h5>
+            <span class="role">Above the fold</span>
+          </div>
+          <p>Bold statement of TSPEC's 50-year credibility. Two prominent path buttons: "I need cabling" / "I need IT
+            support." Subtle hover preview of the two journeys. Emergency-support phone number always visible.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">02.</span>
+          <div>
+            <h5>Trust strip</h5>
+            <span class="role">Credibility above the fold</span>
+          </div>
+          <p>GSA contract number, RCDD &amp; BICSI badges, "since 1973," and three logos of named clients. Compresses to
+            a marquee on mobile.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">03.</span>
+          <div>
+            <h5>Two service-line cards</h5>
+            <span class="role">The split</span>
+          </div>
+          <p>Side-by-side cards mirroring the dual-journey logic. Each links to its dedicated landing page and includes
+            the journey-specific CTA inline.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">04.</span>
+          <div>
+            <h5>"Why TSPEC" — three proof pillars</h5>
+            <span class="role">Differentiator</span>
+          </div>
+          <p>Local presence, certified expertise, long-term partnerships. Each pillar pulls a real number: years in
+            business, certifications held, GSA contract status.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">05.</span>
+          <div>
+            <h5>Featured project + featured client</h5>
+            <span class="role">Storytelling</span>
+          </div>
+          <p>One real cabling project (photography + brief case story) and one MSP testimonial in long form. Replaces
+            the static carousel on the current site.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">06.</span>
+          <div>
+            <h5>Markets &amp; certifications</h5>
+            <span class="role">Government &amp; education proof</span>
+          </div>
+          <p>SLED-friendly section that surfaces GSA, K-12, and association credentials. Optimized for
+            procurement-officer search behavior.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">07.</span>
+          <div>
+            <h5>Insights &amp; news</h5>
+            <span class="role">SEO + freshness signal</span>
+          </div>
+          <p>Latest three blog posts. CMS-managed by TSPEC staff post-launch. Anchors topic-cluster SEO for both service
+            lines.</p>
+        </div>
+        <div class="anatomy-row">
+          <span class="ord">08.</span>
+          <div>
+            <h5>Final CTA + sticky helper</h5>
+            <span class="role">Conversion safety net</span>
+          </div>
+          <p>One closing CTA per journey, plus a sticky "Need help now?" helper that follows the visitor.
+            Mobile-optimized — thumb-reach placement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SITEMAP ── -->
+  <section class="sitemap-block shell">
+    <div class="sitemap-head">
+      <p class="eyebrow">3.2 · Site map</p>
+      <h2>23 pages. <span class="italic-serif" style="color: var(--accent);">Every one</span> earns its URL.</h2>
+    </div>
+
+    <div class="sitemap-grid">
+      <div class="sm-col accent">
+        <span class="label">Top-level</span>
+        <h5>Core navigation</h5>
+        <span class="count">5 pages</span>
+        <ul>
+          <li>Homepage (dual journey)</li>
+          <li>About / The TSpec Advantage</li>
+          <li>Partners</li>
+          <li>Career Opportunities</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+
+      <div class="sm-col">
+        <span class="label">Cabling line</span>
+        <h5>Structured Cabling</h5>
+        <span class="count">8 pages · landing + 7 service</span>
+        <ul>
+          <li>Cabling landing page</li>
+          <li>About Cabling</li>
+          <li>Audio / Visual</li>
+          <li>CATV</li>
+          <li>Wireless</li>
+          <li>Surveillance &amp; Security</li>
+          <li>Design / Build</li>
+          <li>Support Services</li>
+        </ul>
+      </div>
+
+      <div class="sm-col">
+        <span class="label">MSP line</span>
+        <h5>Managed IT Services</h5>
+        <span class="count">7 pages · landing + 6 service</span>
+        <ul>
+          <li>MSP landing page</li>
+          <li>Cloud Services</li>
+          <li>Hardware Support</li>
+          <li>IT Staffing</li>
+          <li>Helpdesk</li>
+          <li>VoIP &amp; Unified Comms</li>
+          <li>Backup &amp; Recovery</li>
+        </ul>
+      </div>
+
+      <div class="sm-col">
+        <span class="label">Markets &amp; content</span>
+        <h5>Verticals + Blog</h5>
+        <span class="count">3 pages + blog template</span>
+        <ul>
+          <li>Small / Medium Business</li>
+          <li>Government &amp; Education</li>
+          <li>Blog / News index</li>
+          <li>Single-post template (CMS)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DELIVERABLES (3.3) ── -->
+  <section class="deliv-block">
+    <div class="shell">
+      <div class="deliv-head">
+        <p class="eyebrow">3.3 · Technical deliverables</p>
+        <h2>What ships with the site. <span class="accent">All of it.</span></h2>
+      </div>
+
+      <div class="deliv-grid">
+        <div class="deliv-card">
+          <span class="lab">A.</span>
+          <h5>Fully responsive design</h5>
+          <p>Optimized for desktop, tablet, and mobile. Real-device QA on 6+ device profiles — not just resized in
+            DevTools.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">B.</span>
+          <h5>SEO-optimized structure</h5>
+          <p>Meta tags, OpenGraph, structured-data schema (LocalBusiness, Service, FAQ), XML sitemap, robots.txt,
+            redirect map for tspec.com URLs.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">C.</span>
+          <h5>Analytics &amp; Search Console</h5>
+          <p>Google Analytics 4 with conversion events for every form and Calendly booking. Google Search Console
+            verified, sitemap submitted.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">D.</span>
+          <h5>Self-service appointment booking</h5>
+          <p>Calendly Standard wired into both service lines — separate event types for "Site Survey" and "IT
+            Assessment." TSPEC owns the Calendly account.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">E.</span>
+          <h5>Lead-capture forms</h5>
+          <p>Gravity Forms with conditional logic, spam protection, and routing into TSPEC's email + optional CRM.
+            Submission archive lives in WordPress, exportable to CSV.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">F.</span>
+          <h5>Performance &amp; security</h5>
+          <p>Page-speed target &lt; 3s, image optimization, lazy-loading, Brotli/gzip, WP Rocket caching. SSL, malware
+            scanning, weekly off-site backups.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">G.</span>
+          <h5>Accessibility — WCAG 2.1 AA</h5>
+          <p>Color contrast, semantic HTML, keyboard navigability, focus states, alt text, captioned video. Audited with
+            axe + manual screen-reader pass before launch.</p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">H.</span>
+          <h5>30-day post-launch support</h5>
+          <p>Bug fixes, content tweaks, training reinforcement. Anything we missed or you find — at no additional cost.
+          </p>
+        </div>
+        <div class="deliv-card">
+          <span class="lab">I.</span>
+          <h5>Documentation &amp; training</h5>
+          <p>Two recorded CMS training sessions. Written admin guide. Site map, brand guidelines applied, and an editing
+            handbook delivered as PDFs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PLATFORM RECOMMENDATION ── -->
+  <section class="platform-block shell">
+    <div class="platform-grid">
+      <div>
+        <p class="eyebrow">4.0 · Platform recommendation</p>
+        <h2 style="margin-top: 16px;">The platform <span class="ital">your</span> team can run.</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--fg2); margin-top: 24px;">
+          The RFP is explicit: TSPEC has no marketing or web team, and the new site must be editable by non-marketers —
+          no exceptions. We've evaluated the four common options: WordPress, Webflow, HubSpot CMS, and Squarespace.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--fg2); margin-top: 16px;">
+          The recommendation, on its merits and for your specific staffing situation, is <strong
+            style="color: var(--fg1);">WordPress with the native Gutenberg block editor</strong> on a custom-built
+          theme. The reasoning is on the right.
+        </p>
+      </div>
+
+      <div class="platform-pick">
+        <span class="pill">★ Recommended</span>
+        <h3>WordPress + Gutenberg</h3>
+        <p>Custom theme. No bloated page builder. Native block editor your team already half-knows from any other site
+          they've ever touched.</p>
+
+        <div class="reasons">
+          <div class="reason">
+            <div class="lab">A.</div>
+            <h6>Editable by non-marketers</h6>
+            <p>Gutenberg's "what you see is what you get" matches any modern document editor. Real point-and-click.</p>
+          </div>
+          <div class="reason">
+            <div class="lab">B.</div>
+            <h6>You own everything</h6>
+            <p>Theme code, plugin licenses, hosting account — all in TSPEC's name. Zero lock-in to gloWWWup.</p>
+          </div>
+          <div class="reason">
+            <div class="lab">C.</div>
+            <h6>Hire-able anywhere</h6>
+            <p>If you ever replace us, finding a competent WP developer is trivial. The talent pool is enormous.</p>
+          </div>
+          <div class="reason">
+            <div class="lab">D.</div>
+            <h6>Plugin economy</h6>
+            <p>Forms, booking, SEO, analytics — every required function has a mature, maintained plugin. We pick the
+              right ones, not the most.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PLATFORMS WE DIDN'T PICK ── -->
+  <section class="tech-block">
+    <div class="shell">
+      <p class="eyebrow">For the record</p>
+      <h2
+        style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -.03em; line-height: 1.05; margin-top: 16px; margin-bottom: 40px; max-width: 22ch;">
+        Why not the other three?
+      </h2>
+
+      <div class="tech-grid">
+        <div class="row">
+          <span class="check">×</span>
+          <div>
+            <h6>Webflow</h6>
+            <p>Beautiful for designers. Less intuitive for ops staff. CMS limits and per-seat pricing scale poorly.
+              Lock-in is real — exporting is painful.</p>
+          </div>
+        </div>
+        <div class="row">
+          <span class="check">×</span>
+          <div>
+            <h6>HubSpot CMS</h6>
+            <p>Excellent if TSPEC were running a marketing-automation playbook. You're not. The cost ($1,200+/mo) is
+              wasted budget given your use case.</p>
+          </div>
+        </div>
+        <div class="row">
+          <span class="check">×</span>
+          <div>
+            <h6>Squarespace</h6>
+            <p>Easy editing, but the customizability ceiling is too low for a 23-page B2B site with two distinct product
+              lines. Outgrows itself.</p>
+          </div>
+        </div>
+        <div class="row">
+          <span class="check" style="color: var(--accent);">✓</span>
+          <div>
+            <h6>WordPress + Gutenberg <span
+                style="color: var(--accent); font-size: 11px; font-family: var(--font-geist); letter-spacing: .08em; text-transform: uppercase; margin-left: 8px;">picked</span>
+            </h6>
+            <p>The right combination of editability, ownership, scale, and replaceability. Mature tooling. Predictable
+              cost. Boring in the best way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="next-cta">
+    <div class="shell">
+      <p class="eyebrow">Next</p>
+      <h2 style="margin-top: 16px;">The number you're waiting for.<br><span class="accent">Itemized. Honest. No
+          surprises.</span></h2>
+      <p class="lede">Project investment, broken down line by line. Plus every recurring platform cost — disclosed in
+        dollars, paid by you, with a recommended vendor for each.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="pricing.html" class="btn btn-accent">
+          See the pricing
+          <span class="arrow">
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#F43C00" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+        <a href="timeline.html" class="btn btn-ghost btn-on-dark">Or jump to timeline</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-foot">
+    <div class="shell">
+      <div class="row">
+        <div style="max-width: 30ch;">
+          <h6>gloWWWup × TSPEC</h6>
+          <p>Section 02 of 05 · Strategy &amp; Scope. Submitted April 27, 2026 in response to the Raymer Solutions RFP.
+          </p>
+        </div>
+        <div>
+          <h6>Submitted to</h6>
+          <p>Stephanie Raymer<br>Raymer Solutions<br><a
+              href="mailto:stephanie@raymersolutions.com">stephanie@raymersolutions.com</a><br>410-980-8510</p>
+        </div>
+        <div>
+          <h6>Submitted by</h6>
+          <p>gloWWWup<br>Digital Agency<br><a href="https://glowwwup.com">glowwwup.com</a><br>Mo—Fr · 9am—6pm</p>
+        </div>
+        <div>
+          <h6>Sections</h6>
+          <p>
+            <a href="index.html">00 · Cover</a><br>
+            <a href="partnership.html">01 · Partnership</a><br>
+            <a href="strategy.html">02 · Strategy &amp; Scope</a><br>
+            <a href="pricing.html">03 · Pricing</a><br>
+            <a href="timeline.html">04 · Timeline</a><br>
+            <a href="portfolio.html">05 · Portfolio</a><br>
+            <a href="growth.html">06 · Growth</a>
+          </p>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 gloWWWup · Confidential</span>
+        <span>Proposal v1.0 · 04.27.2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

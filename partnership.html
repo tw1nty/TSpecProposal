@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Partnership · gloWWWup × TSPEC</title>
+  <meta name="description"
+    content="How gloWWWup approaches the TSPEC engagement: discovery, brand integration, team, and a partnership model that outlasts launch day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    /* ── PAGE HEADER ── */
+    .page-head {
+      padding: clamp(48px, 6vw, 96px) 0 clamp(40px, 5vw, 64px);
+    }
+
+    .page-head .eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-geist);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+    }
+
+    .page-head .eyebrow-row a:hover {
+      color: var(--accent);
+    }
+
+    .page-head h1 {
+      font-size: clamp(48px, 9vw, 120px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      margin: 0 0 28px;
+      max-width: 14ch;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .page-head h1 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* Two-column intro */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      padding: clamp(40px, 5vw, 80px) 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-grid h2 {
+      font-size: clamp(36px, 4.5vw, 56px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .intro-grid h2 em {
+      color: var(--accent);
+    }
+
+    .intro-grid .body {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--fg2);
+      letter-spacing: -.005em;
+    }
+
+    .intro-grid .body p+p {
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* The Pact: 4 commitments */
+    .pact-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .pact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .pact-cell {
+      background: var(--surface);
+      padding: clamp(32px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 240px;
+    }
+
+    .pact-cell .num {
+      font-family: var(--font-geist);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--accent);
+    }
+
+    .pact-cell h4 {
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+    }
+
+    .pact-cell p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--fg2);
+    }
+
+    .pact-cell.accent {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+    }
+
+    .pact-cell.accent p {
+      color: var(--fg-on-dark-mute);
+    }
+
+    @media (max-width: 760px) {
+      .pact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Discovery / Process timeline */
+    .process-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .process-head {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      margin-bottom: clamp(40px, 5vw, 64px);
+    }
+
+    .process-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    @media (max-width: 900px) {
+      .process-head {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .process-rail {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+
+    .phase {
+      background: var(--surface);
+      padding: 28px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      min-height: 280px;
+    }
+
+    .phase::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent);
+      transform-origin: left;
+      transform: scaleX(.2);
+    }
+
+    .phase:nth-child(1)::before {
+      transform: scaleX(.2);
+    }
+
+    .phase:nth-child(2)::before {
+      transform: scaleX(.4);
+    }
+
+    .phase:nth-child(3)::before {
+      transform: scaleX(.6);
+    }
+
+    .phase:nth-child(4)::before {
+      transform: scaleX(.8);
+    }
+
+    .phase:nth-child(5)::before {
+      transform: scaleX(1);
+    }
+
+    .phase .week {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .phase h5 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+    }
+
+    .phase ul li {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg2);
+      padding: 6px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+    }
+
+    .phase ul li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .phase ul li:first-child {
+      border-top: none;
+      padding-top: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .process-rail {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .process-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .phase {
+        min-height: auto;
+        padding: 24px 20px;
+      }
+    }
+
+    /* Discovery promises */
+    .promise-block {
+      background: var(--bg-alt);
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(40px, 5vw, 80px);
+    }
+
+    .promise-grid h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 12ch;
+    }
+
+    .promise-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .promise-row {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .promise-row:first-child {
+      border-top: none;
+      padding-top: 4px;
+    }
+
+    .promise-row .label {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 4px;
+    }
+
+    .promise-row h4 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .promise-row p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--fg2);
+    }
+
+    @media (max-width: 900px) {
+      .promise-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .promise-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .promise-row .label {
+        padding-top: 0;
+      }
+    }
+
+    /* Team */
+    .team-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .team-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .team-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 16ch;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .person {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 320px;
+    }
+
+    .person .role {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .person h5 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    .person .title {
+      font-size: 14px;
+      color: var(--fg2);
+      line-height: 1.4;
+    }
+
+    .person p {
+      font-size: 14px;
+      color: var(--fg2);
+      line-height: 1.55;
+      margin-top: auto;
+    }
+
+    .person .tag-pm {
+      align-self: flex-start;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-geist);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+    }
+
+    @media (max-width: 1100px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Brand integration approach */
+    .brand-int {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .brand-int .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 4vw, 56px);
+      align-items: center;
+    }
+
+    .brand-int h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .brand-int h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .brand-int p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--fg2);
+    }
+
+    .brand-int p+p {
+      margin-top: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .brand-int .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Closing CTA */
+    .next-cta {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      padding: clamp(64px, 8vw, 120px) 0;
+    }
+
+    .next-cta h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      color: var(--fg-on-dark);
+      max-width: 18ch;
+      margin-bottom: 24px;
+    }
+
+    .next-cta h2 .accent {
+      color: var(--accent);
+    }
+
+    .next-cta .lede {
+      color: var(--fg-on-dark-mute);
+      max-width: 60ch;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <header class="shell">
+    <nav class="nav-pill">
+      <div class="brand">
+        <img src="assets/img/glowwwup-wordmark.png" alt="gloWWWup">
+        <span class="x">×</span>
+        <span>TSPEC</span>
+      </div>
+      <div class="links">
+        <a href="index.html">Cover</a>
+        <a href="partnership.html" class="active">Partnership</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="portfolio.html">Portfolio</a>
+      </div>
+      <a href="strategy.html" class="cta">Continue →</a>
+    </nav>
+  </header>
+
+  <!-- ── PAGE HEAD ── -->
+  <section class="page-head shell">
+    <div class="eyebrow-row">
+      <span><a href="index.html">← Cover</a></span>
+      <span>01 / 05 · The Partnership</span>
+      <span><a href="strategy.html">Strategy &amp; Scope →</a></span>
+    </div>
+    <h1>A partnership.<br>Not a <span class="ital">handoff.</span></h1>
+    <p class="lede" style="max-width: 60ch;">
+      Most agencies finish on launch day and disappear. We treat launch as the start of the relationship — because the
+      website your team has to <em>run</em> for the next five years matters more than the one that ships in week ten.
+    </p>
+  </section>
+
+  <!-- ── INTRO ── -->
+  <section class="shell">
+    <div class="intro-grid">
+      <h2>About <em>gloWWWup.</em><br>And why we're <em>here.</em></h2>
+      <div class="body">
+        <p>gloWWWup is a B2B-leaning web design and development studio. We build websites for service businesses that
+          need to convert two types of buyer at once — operators who want capability, and owners who want results. That
+          makes TSPEC's dual-journey requirement our home turf.</p>
+        <p>We've been watching the MSP and structured-cabling space for a while. The pattern is consistent: fifty-year
+          track records communicated through 2014-era web pages. The technical credibility is there. The web presence
+          undersells it.</p>
+        <p>We are not the cheapest agency you'll evaluate. We're the one that builds a site you can actually maintain
+          in-house, on a platform you own outright, with a team that picks up the phone after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE PACT (4 commitments) ── -->
+  <section class="pact-block shell">
+    <div style="margin-bottom: clamp(40px, 5vw, 64px);">
+      <p class="eyebrow">The pact</p>
+      <h2
+        style="font-size: clamp(40px, 6vw, 80px); letter-spacing: -.04em; line-height: 1; margin-top: 16px; max-width: 16ch;">
+        Four commitments. Written down. On purpose.</h2>
+    </div>
+
+    <div class="pact-grid">
+      <div class="pact-cell">
+        <span class="num">01.</span>
+        <h4>You own everything on day one.</h4>
+        <p>The hosting account. The domain. The plugin licenses. The CMS. The Google Analytics property. The Calendly
+          account. Every credential goes into your password manager — not ours. If you ever fire us, the site keeps
+          working.</p>
+      </div>
+      <div class="pact-cell accent">
+        <span class="num" style="color: var(--accent);">02.</span>
+        <h4>No surprise fees. Ever.</h4>
+        <p>Every recurring cost is disclosed up front, in dollars, paid by you directly to the vendor. We do not bundle
+          hosting, plugins, or third-party tools into our retainer. See <a href="pricing.html" class="alink"
+            style="color: var(--accent);">page three</a> for the full list.</p>
+      </div>
+      <div class="pact-cell">
+        <span class="num">03.</span>
+        <h4>Your team can edit the site.</h4>
+        <p>We build on WordPress + Gutenberg with a thoughtful, opinionated block library. Editing service copy,
+          swapping a hero image, or publishing a blog post is point-and-click — no developer required. Two training
+          sessions are included; we record both.</p>
+      </div>
+      <div class="pact-cell">
+        <span class="num">04.</span>
+        <h4>We stay reachable after launch.</h4>
+        <p>The 30-day post-launch window covers anything broken or missing. Beyond that, an optional retainer keeps us
+          on call — but it's optional. Plenty of our clients ship and don't see us again until they want to. Both are
+          fine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="process-block shell" id="discovery">
+    <div class="process-head">
+      <h2>How the <span class="italic-serif" style="color: var(--accent);">10 weeks</span> work.</h2>
+      <p class="lede">Five phases. Clear gates between each. You sign off before we move forward — no design surprises
+        and no scope creep. Each phase below is detailed further on the <a href="timeline.html" class="alink">timeline
+          page</a>.</p>
+    </div>
+
+    <div class="process-rail">
+      <div class="phase">
+        <span class="week">Weeks 1–2</span>
+        <h5>Discovery &amp; Strategy</h5>
+        <ul>
+          <li>Stakeholder interviews</li>
+          <li>tspec.com audit</li>
+          <li>Competitor scan (MSP + cabling)</li>
+          <li>Two-journey IA workshop</li>
+          <li>Brand voice alignment</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="week">Weeks 3–4</span>
+        <h5>Wireframes &amp; UX</h5>
+        <ul>
+          <li>Sitemap finalized</li>
+          <li>Lo-fi for 7 templates</li>
+          <li>Dual-journey homepage</li>
+          <li>Form &amp; booking flow</li>
+          <li>Mobile-first wires</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="week">Weeks 4–6</span>
+        <h5>Visual Design</h5>
+        <ul>
+          <li>Homepage concept</li>
+          <li>Component library</li>
+          <li>13 service templates</li>
+          <li>Project gallery design</li>
+          <li>Two rounds of revisions</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="week">Weeks 5–9</span>
+        <h5>Development</h5>
+        <ul>
+          <li>WP custom theme build</li>
+          <li>Block library</li>
+          <li>Forms + CRM hooks</li>
+          <li>Calendly integration</li>
+          <li>Content migration</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="week">Weeks 9–10</span>
+        <h5>QA &amp; Launch</h5>
+        <ul>
+          <li>Cross-browser QA</li>
+          <li>WCAG 2.1 AA pass</li>
+          <li>Speed optimization</li>
+          <li>CMS training x2</li>
+          <li>Go-live + 30-day support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DISCOVERY PROMISES ── -->
+  <section class="promise-block">
+    <div class="shell">
+      <div class="promise-grid">
+        <div>
+          <p class="eyebrow">Discovery</p>
+          <h2 style="margin-top: 16px;">How we get to <span class="italic-serif"
+              style="color: var(--accent);">know</span> you.</h2>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--fg2); margin-top: 24px; max-width: 36ch;">
+            Discovery is two weeks of structured listening. No design happens until both sides agree on what we're
+            solving and for whom.
+          </p>
+        </div>
+
+        <div class="promise-list">
+          <div class="promise-row">
+            <span class="label">A.</span>
+            <div>
+              <h4>One kickoff. Two journey workshops.</h4>
+              <p>The first workshop maps the structured-cabling buyer (facilities, project managers, IT directors). The
+                second maps the MSP buyer (business owners, IT directors, operations). Both produce a one-page persona
+                with pain, trigger, and decision criteria — anchoring every page that follows.</p>
+            </div>
+          </div>
+          <div class="promise-row">
+            <span class="label">B.</span>
+            <div>
+              <h4>tspec.com audit, in writing.</h4>
+              <p>Heuristic review, on-page SEO inventory, accessibility scan, content inventory, and a Lighthouse
+                baseline. You receive the audit document — yours to keep, share with auditors, or hand to a future
+                agency.</p>
+            </div>
+          </div>
+          <div class="promise-row">
+            <span class="label">C.</span>
+            <div>
+              <h4>Brand &amp; voice alignment.</h4>
+              <p>TSPEC has fifty-plus years of credibility, GSA pedigree, and named certifications (RCDD, BICSI). The
+                new site needs to look like that company looks in person. We pull design cues from the existing
+                wordmark, photography assets, and trust signals you already use in proposals — so the web presence
+                catches up to the in-room presence.</p>
+            </div>
+          </div>
+          <div class="promise-row">
+            <span class="label">D.</span>
+            <div>
+              <h4>Content migration with judgment.</h4>
+              <p>The RFP states no new copywriting is required. Agreed. But we will <em>restructure</em> existing copy
+                onto the new IA, fix obvious factual gaps (hours, cert numbers, GSA contract), and flag any sections we
+                recommend retiring. You approve every cut. Nothing leaves the site silently.</p>
+            </div>
+          </div>
+          <div class="promise-row">
+            <span class="label">E.</span>
+            <div>
+              <h4>Revisions: two rounds, then a final pass.</h4>
+              <p>Two formal rounds of feedback at wireframe and at design. A final polish pass after dev. Feedback runs
+                through one named point of contact at TSPEC and is consolidated by your project manager — so the team
+                isn't fielding contradictory edits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BRAND INTEGRATION ── -->
+  <section class="brand-int shell">
+    <div class="grid">
+      <div>
+        <p class="eyebrow">Brand integration</p>
+        <h2 style="margin-top: 16px;">A 50-year reputation, <span class="ital">finally on screen.</span></h2>
+      </div>
+      <div>
+        <p>The current TSPEC site reads younger than the company. There's strong copy about "making systems GO" and
+          three excellent testimonials that should be doing more work. The wordmark is solid. The brand asset most
+          under-used is the certified, GSA-credentialed authority TSPEC has earned over five decades.</p>
+        <p>The redesign translates that authority into design language: confident typography, deliberate use of
+          whitespace, real project photography from your portfolio, and trust signals (RCDD, BICSI, GSA contract
+          #GS-35F-0180M) treated as headline content rather than footer fine print. We won't reinvent your logo — we'll
+          build a system that lets it lead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="team-block shell">
+    <div class="team-head">
+      <div>
+        <p class="eyebrow">The team you'll meet</p>
+        <h2 style="margin-top: 16px;">Three people. <span class="italic-serif"
+            style="color: var(--accent);">Named.</span> Not pooled.</h2>
+      </div>
+      <p class="lede" style="max-width: 36ch;">No subcontracted offshore design teams. No bait-and-switch. The names
+        below are the names you work with from kickoff through launch.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="person">
+        <span class="tag-pm">Your point of contact</span>
+        <span class="role">Project Manager</span>
+        <h5>Andrew Jackson</h5>
+        <p class="title">Founder, gloWWWup</p>
+        <p>Leads strategy, runs the weekly checkpoint, and is the single line of communication into your account. Twelve
+          years building B2B service-business websites. Will personally answer your email.</p>
+      </div>
+      <div class="person">
+        <span class="role">Production Manager</span>
+        <h5>Elizabeth Jia</h5>
+        <p class="title">Copy Editor, Marketing Lead</p>
+        <p>Owns the copy, the messaging, the dual-journey homepage concept, and the component library. Background in
+          editorial and B2B SaaS. Edited copy for three of the dual-persona sites in our portfolio.</p>
+      </div>
+      <div class="person">
+        <span class="role">Project Manager</span>
+        <h5>Steve Burke</h5>
+        <p class="title">Project Manager</p>
+        <p>Leads the T-Spec Project, runs the weekly checkpoint, and is an additional line of communication into your
+          account.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DARK BAND CTA ── -->
+  <section class="next-cta">
+    <div class="shell">
+      <p class="eyebrow">Next</p>
+      <h2 style="margin-top: 16px;">The strategy. <span class="accent">Two journeys.</span> One site you can defend in
+        the boardroom.</h2>
+      <p class="lede">A homepage that doesn't ask the visitor to figure out which TSPEC service line they need. Two
+        distinct paths. Conversion built in. Detailed on the next page.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="strategy.html" class="btn btn-accent">
+          See the strategy
+          <span class="arrow">
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#F43C00" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+        <a href="pricing.html" class="btn btn-ghost btn-on-dark">Skip to pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-foot">
+    <div class="shell">
+      <div class="row">
+        <div style="max-width: 30ch;">
+          <h6>gloWWWup × TSPEC</h6>
+          <p>Section 01 of 05 · The Partnership. Submitted April 27, 2026 in response to the Raymer Solutions RFP.</p>
+        </div>
+        <div>
+          <h6>Submitted to</h6>
+          <p>Stephanie Raymer<br>Raymer Solutions<br><a
+              href="mailto:stephanie@raymersolutions.com">stephanie@raymersolutions.com</a><br>410-980-8510</p>
+        </div>
+        <div>
+          <h6>Submitted by</h6>
+          <p>gloWWWup<br>Digital Agency<br><a href="https://glowwwup.com">glowwwup.com</a><br>Mo—Fr · 9am—6pm</p>
+        </div>
+        <div>
+          <h6>Sections</h6>
+          <p>
+            <a href="index.html">00 · Cover</a><br>
+            <a href="partnership.html">01 · Partnership</a><br>
+            <a href="strategy.html">02 · Strategy &amp; Scope</a><br>
+            <a href="pricing.html">03 · Pricing</a><br>
+            <a href="timeline.html">04 · Timeline</a><br>
+            <a href="portfolio.html">05 · Portfolio</a><br>
+            <a href="growth.html">06 · Growth</a>
+          </p>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 gloWWWup · Confidential</span>
+        <span>Proposal v1.0 · 04.27.2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

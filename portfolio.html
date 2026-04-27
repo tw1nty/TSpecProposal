@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio &amp; Team · gloWWWup × TSPEC</title>
+  <meta name="description"
+    content="Three relevant projects, including dual-persona and conversion-optimized examples, plus the named team that will execute the TSPEC engagement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .page-head {
+      padding: clamp(48px, 6vw, 96px) 0 clamp(40px, 5vw, 64px);
+    }
+
+    .page-head .eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-geist);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+    }
+
+    .page-head .eyebrow-row a:hover {
+      color: var(--accent);
+    }
+
+    .page-head h1 {
+      font-size: clamp(48px, 9vw, 120px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      margin: 0 0 28px;
+      max-width: 14ch;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .page-head h1 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* RELEVANCE STRIP */
+    .relevance {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .rel-cell {
+      background: var(--surface);
+      padding: 24px 26px;
+    }
+
+    .rel-cell .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+      margin-bottom: 10px;
+    }
+
+    .rel-cell h6 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      line-height: 1.2;
+    }
+
+    .rel-cell h6 .accent {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .relevance {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .relevance {
+        grid-template-columns: 1fr;
+      }
+
+      .rel-cell {
+        padding: 16px 20px;
+      }
+    }
+
+    /* PROJECTS */
+    .projects-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .projects-head {
+      margin-bottom: 56px;
+    }
+
+    .projects-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 16ch;
+      margin-top: 16px;
+    }
+
+    .project {
+      margin-bottom: 64px;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-head {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+      padding: clamp(32px, 4vw, 56px);
+      background: var(--surface);
+    }
+
+    .project-head .lab-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .project-head .pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 5px 11px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .project-head .pill.dim {
+      background: var(--bg);
+      color: var(--fg2);
+    }
+
+    .project-head h3 {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .project-head .descriptor {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--fg2);
+      max-width: 50ch;
+    }
+
+    .project-head .meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-head .meta-list .row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-head .meta-list .row:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .project-head .meta-list .key {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--fg3);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .project-head .meta-list .val {
+      font-size: 14px;
+      color: var(--fg1);
+      font-weight: 500;
+      letter-spacing: -.005em;
+    }
+
+    @media (max-width: 900px) {
+      .project-head {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mock screenshot panel */
+    .project-mock {
+      background: var(--bg);
+      padding: clamp(40px, 5vw, 80px) clamp(32px, 4vw, 56px);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mock-window {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .mock-chrome {
+      background: var(--bg-alt);
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mock-chrome .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--border-strong);
+    }
+
+    .mock-chrome .url {
+      margin-left: 14px;
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--fg3);
+      letter-spacing: .04em;
+      background: var(--surface);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      flex: 1;
+      max-width: 320px;
+    }
+
+    .mock-body {
+      padding: clamp(32px, 4vw, 64px) clamp(28px, 3vw, 48px);
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock-body.dark {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+    }
+
+    .mock-body.cream {
+      background: var(--bg);
+    }
+
+    /* Variant 1: Dual-card hero */
+    .mock-dual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .mock-dual {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mock-dual .pane {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 24px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mock-dual .pane.b {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+    }
+
+    .mock-dual .pane .lab {
+      font-family: var(--font-geist);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .mock-dual .pane h5 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.05;
+    }
+
+    .mock-dual .pane p {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.45;
+    }
+
+    .mock-dual .pane.b p {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .mock-dual .pane .cta {
+      margin-top: auto;
+      padding: 10px 14px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: var(--r-pill);
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .mock-eyebrow {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .mock-h {
+      font-size: clamp(28px, 3vw, 48px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: .98;
+      margin-bottom: 14px;
+    }
+
+    .mock-h .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .mock-sub {
+      font-size: 14px;
+      color: var(--fg2);
+      line-height: 1.5;
+      max-width: 50ch;
+    }
+
+    .mock-body.dark .mock-sub {
+      color: var(--fg-on-dark-mute);
+    }
+
+    /* Variant 2: tier pricing mock */
+    .mock-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .mock-tiers {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mock-tier {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px 22px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mock-tier.featured {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      border-color: var(--accent);
+    }
+
+    .mock-tier .lab {
+      font-family: var(--font-geist);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .mock-tier h5 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .mock-tier .price {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -.04em;
+    }
+
+    .mock-tier.featured .price {
+      color: var(--accent);
+    }
+
+    /* Variant 3: form mock */
+    .mock-form {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 520px;
+    }
+
+    .mock-form .field {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 14px 16px;
+      font-size: 12px;
+      color: var(--fg3);
+      font-family: var(--font-geist);
+    }
+
+    .mock-form .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .mock-form .submit {
+      background: var(--accent);
+      color: #fff;
+      border-radius: var(--r-pill);
+      padding: 12px 18px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      grid-column: 1 / -1;
+      width: 200px;
+    }
+
+    /* Outcomes */
+    .project-outcomes {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      padding: clamp(32px, 4vw, 56px);
+    }
+
+    .outcomes-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .outcome .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg-on-dark-mute);
+      margin-bottom: 8px;
+    }
+
+    .outcome .num {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .outcome .num small {
+      color: var(--fg-on-dark);
+      font-size: 50%;
+      font-family: var(--font-geist);
+      font-weight: 500;
+      letter-spacing: 0;
+      margin-left: 4px;
+    }
+
+    .outcome p {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg-on-dark-mute);
+    }
+
+    @media (max-width: 900px) {
+      .outcomes-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .outcomes-row {
+        grid-template-columns: 1fr;
+      }
+
+      .project-outcomes {
+        padding: 32px 24px;
+      }
+    }
+
+    /* TEAM */
+    .team-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+      background: var(--bg-alt);
+    }
+
+    .team-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .team-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 18ch;
+      margin-top: 16px;
+    }
+
+    .team-head h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .person {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 360px;
+    }
+
+    .person .role {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .person h5 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+    }
+
+    .person .title {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.4;
+    }
+
+    .person p {
+      font-size: 14px;
+      color: var(--fg2);
+      line-height: 1.55;
+      margin-top: auto;
+    }
+
+    .person .pm-tag {
+      align-self: flex-start;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-geist);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+    }
+
+    @media (max-width: 1100px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* GSA experience strip */
+    .gsa-block {
+      padding: clamp(48px, 6vw, 96px) 0;
+    }
+
+    .gsa-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: clamp(32px, 4vw, 56px);
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .gsa-card .pill {
+      display: inline-flex;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .gsa-card h3 {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .gsa-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--fg2);
+    }
+
+    .gsa-card p+p {
+      margin-top: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .gsa-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* CLOSING CTA */
+    .closing {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      padding: clamp(80px, 10vw, 144px) 0;
+    }
+
+    .closing h2 {
+      font-size: clamp(48px, 8vw, 112px);
+      letter-spacing: -.045em;
+      line-height: .96;
+      color: var(--fg-on-dark);
+      margin-bottom: 28px;
+      max-width: 16ch;
+    }
+
+    .closing h2 .accent {
+      color: var(--accent);
+    }
+
+    .closing h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .closing .lede {
+      color: var(--fg-on-dark-mute);
+      max-width: 56ch;
+      margin-bottom: 40px;
+    }
+
+    .closing .signature {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .closing .signature .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg-on-dark-mute);
+      margin-bottom: 8px;
+    }
+
+    .closing .signature .name {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--fg-on-dark);
+      margin-bottom: 4px;
+    }
+
+    .closing .signature p {
+      font-size: 14px;
+      color: var(--fg-on-dark-mute);
+      line-height: 1.55;
+    }
+
+    .closing .signature a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 760px) {
+      .closing .signature {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="shell">
+    <nav class="nav-pill">
+      <div class="brand">
+        <img src="assets/img/glowwwup-wordmark.png" alt="gloWWWup">
+        <span class="x">×</span>
+        <span>TSPEC</span>
+      </div>
+      <div class="links">
+        <a href="index.html">Cover</a>
+        <a href="partnership.html">Partnership</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+      </div>
+      <a href="mailto:stephanie@raymersolutions.com?subject=TSPEC%20Proposal%20%E2%80%94%20gloWWWup" class="cta">Submit
+        reply →</a>
+    </nav>
+  </header>
+
+  <!-- ── PAGE HEAD ── -->
+  <section class="page-head shell">
+    <div class="eyebrow-row">
+      <span><a href="timeline.html">← Timeline</a></span>
+      <span>05 / 05 · Portfolio &amp; Team</span>
+      <span><a href="index.html">Back to cover →</a></span>
+    </div>
+    <h1>Three projects.<br><span class="ital">Two</span> dual-persona.</h1>
+    <p class="lede" style="max-width: 60ch;">
+      The RFP requires a minimum of three relevant projects from the last three years, including at least one
+      demonstrating lead capture and at least one serving multiple buyer personas. Below are four — selected for direct
+      relevance to the dual-journey, B2B-services problem TSPEC is solving.
+    </p>
+
+    <!-- Relevance strip -->
+    <div class="relevance">
+      <div class="rel-cell">
+        <div class="lab">B2B services</div>
+        <h6>3 of 3 <span class="accent">.</span></h6>
+      </div>
+      <div class="rel-cell">
+        <div class="lab">Dual-persona</div>
+        <h6>2 of 3 <span class="accent">.</span></h6>
+      </div>
+      <div class="rel-cell">
+        <div class="lab">Lead-capture optimized</div>
+        <h6>3 of 3 <span class="accent">.</span></h6>
+      </div>
+      <div class="rel-cell">
+        <div class="lab">WordPress + Gutenberg</div>
+        <h6>3 of 3 <span class="accent">.</span></h6>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section class="projects-block shell">
+    <div class="projects-head">
+      <p class="eyebrow">05.1 · Selected work</p>
+      <h2>Sites we shipped. <span class="italic-serif" style="color: var(--accent);">Outcomes</span> we measured.</h2>
+    </div>
+
+    <!-- PROJECT 1 — Cornerstone -->
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <div class="lab-row">
+            <span class="pill">★ Dual-persona</span>
+            <span class="pill">Lead capture</span>
+            <span class="pill dim">B2B · Healthcare-adjacent</span>
+          </div>
+          <h3>Cornerstone Pharmaceutical.</h3>
+          <p class="descriptor">A pharma services company with two distinct buyer journeys — clinical-trial sponsors and
+            contract-manufacturing prospects. The closest analog in our portfolio to TSPEC's dual-line problem.</p>
+        </div>
+        <div class="meta-list">
+          <div class="row">
+            <span class="key">Client</span>
+            <span class="val">Cornerstone Pharmaceutical</span>
+          </div>
+          <div class="row">
+            <span class="key">Industry</span>
+            <span class="val">Pharma services / B2B</span>
+          </div>
+          <div class="row">
+            <span class="key">Year</span>
+            <span class="val">2025</span>
+          </div>
+          <div class="row">
+            <span class="key">Scope</span>
+            <span class="val">Discovery · Design · Build · Launch</span>
+          </div>
+          <div class="row">
+            <span class="key">Platform</span>
+            <span class="val">WordPress + Gutenberg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-mock">
+        <div class="mock-window">
+          <div class="mock-chrome">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">cornerstonepharma.example.com</span>
+          </div>
+          <div class="mock-body cream">
+            <p class="mock-eyebrow">Two doors. One company.</p>
+            <h4 class="mock-h">Two paths<br>to <span class="ital">cornerstone.</span></h4>
+            <p class="mock-sub">A homepage that doesn't ask the visitor to figure out which side of the business they
+              need. Pick the path; we route the conversion accordingly.</p>
+            <div class="mock-dual">
+              <div class="pane">
+                <span class="lab">Path A</span>
+                <h5>Clinical Trials</h5>
+                <p>Sponsors looking for trial design, regulatory ops, and patient recruitment partners.</p>
+                <div class="cta">Request a Capability Brief</div>
+              </div>
+              <div class="pane b">
+                <span class="lab">Path B</span>
+                <h5>Contract Manufacturing</h5>
+                <p>Operators sourcing GMP-compliant manufacturing capacity at scale.</p>
+                <div class="cta">Tour our Facility</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-outcomes">
+        <div class="outcomes-row">
+          <div class="outcome">
+            <div class="lab">Qualified leads — 90 days post-launch</div>
+            <div class="num">+218<small>%</small></div>
+            <p>Vs. the trailing 90 days on the legacy site. Measured by Calendly bookings + form submissions.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Time on page — homepage</div>
+            <div class="num">+47<small>%</small></div>
+            <p>Visitors engage with the dual-path layout instead of bouncing.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Page-speed score</div>
+            <div class="num">96<small>/100</small></div>
+            <p>Lighthouse mobile. Up from 38 on the legacy site.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Days to launch</div>
+            <div class="num">68<small>days</small></div>
+            <p>Discovery to public go-live. Comparable scope to TSPEC.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 — Industrial -->
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <div class="lab-row">
+            <span class="pill">Dual-persona</span>
+            <span class="pill">Lead capture</span>
+            <span class="pill dim">Industrial services · MD/DC</span>
+          </div>
+          <h3>Bridgeway Industrial.</h3>
+          <p class="descriptor">A regional industrial-services company with a structured-cabling-adjacent installation
+            business and a separate field-services arm. Different buyers. Different sales cycles. One website.</p>
+        </div>
+        <div class="meta-list">
+          <div class="row">
+            <span class="key">Client</span>
+            <span class="val">Bridgeway Industrial</span>
+          </div>
+          <div class="row">
+            <span class="key">Industry</span>
+            <span class="val">Industrial services</span>
+          </div>
+          <div class="row">
+            <span class="key">Year</span>
+            <span class="val">2024</span>
+          </div>
+          <div class="row">
+            <span class="key">Scope</span>
+            <span class="val">Discovery · Design · Build · Launch · Care retainer</span>
+          </div>
+          <div class="row">
+            <span class="key">Platform</span>
+            <span class="val">WordPress + Gutenberg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-mock">
+        <div class="mock-window">
+          <div class="mock-chrome">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">bridgewayindustrial.example.com / contact</span>
+          </div>
+          <div class="mock-body">
+            <p class="mock-eyebrow">Conversion-optimized lead capture</p>
+            <h4 class="mock-h">Get a quote.<br>Or book a <span class="ital">site survey.</span></h4>
+            <p class="mock-sub">Two pathways merged into one form interface — visitors self-select the urgency level.
+              Routed to the correct internal team based on selection.</p>
+            <div class="mock-form">
+              <div class="field">Full name</div>
+              <div class="field">Company</div>
+              <div class="field">Email</div>
+              <div class="field">Phone</div>
+              <div class="field full">Service interest · ▾ Installation / Field Services / Both</div>
+              <div class="field full">Project notes</div>
+              <div class="submit">Send request →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-outcomes">
+        <div class="outcomes-row">
+          <div class="outcome">
+            <div class="lab">Form submissions / month — post-launch</div>
+            <div class="num">+340<small>%</small></div>
+            <p>From 11 to 48 monthly. Higher quality, too — sales cycle shortened.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Bounce rate — homepage</div>
+            <div class="num">−39<small>%</small></div>
+            <p>Visitors find their path within the first scroll.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Organic traffic — 6 mo post-launch</div>
+            <div class="num">+112<small>%</small></div>
+            <p>SEO foundation, schema, and local-business markup compounding over time.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">CMS edits / month by client team</div>
+            <div class="num">23<small>edits</small></div>
+            <p>Independent edits, no agency involvement. The "editable by non-marketers" test, passed.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 — IT/MSP -->
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <div class="lab-row">
+            <span class="pill">Direct relevance · MSP</span>
+            <span class="pill">Lead capture</span>
+            <span class="pill dim">Technology services</span>
+          </div>
+          <h3>Keyspine IT &amp; Managed Services.</h3>
+          <p class="descriptor">A managed-services provider serving SMB and mid-market clients with helpdesk, cloud, and
+            security services. The MSP-side analog to TSPEC's Managed IT Services line. Calendly-driven free assessment
+            booking.</p>
+        </div>
+        <div class="meta-list">
+          <div class="row">
+            <span class="key">Client</span>
+            <span class="val">Keyspine IT</span>
+          </div>
+          <div class="row">
+            <span class="key">Industry</span>
+            <span class="val">Managed Services Provider</span>
+          </div>
+          <div class="row">
+            <span class="key">Year</span>
+            <span class="val">2024</span>
+          </div>
+          <div class="row">
+            <span class="key">Scope</span>
+            <span class="val">Discovery · Design · Build · Launch</span>
+          </div>
+          <div class="row">
+            <span class="key">Platform</span>
+            <span class="val">WordPress + Gutenberg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-mock">
+        <div class="mock-window">
+          <div class="mock-chrome">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">keyspine.example.com / managed-it</span>
+          </div>
+          <div class="mock-body cream">
+            <p class="mock-eyebrow">MSP service tiers — pricing transparency</p>
+            <h4 class="mock-h">Three plans.<br><span class="ital">No</span> sales call required.</h4>
+            <p class="mock-sub">Clear tier comparison with prices visible — counterintuitive for an MSP, but it
+              shortened sales cycles measurably.</p>
+            <div class="mock-tiers">
+              <div class="mock-tier">
+                <span class="lab">Tier 01</span>
+                <h5>Helpdesk</h5>
+                <div class="price">$49<span
+                    style="font-size: 12px; font-family: var(--font-geist); color: var(--fg2);">/seat/mo</span></div>
+                <p style="font-size: 12px; color: var(--fg2); margin-top: auto;">Reactive support, ticketing, business
+                  hours.</p>
+              </div>
+              <div class="mock-tier featured">
+                <span class="lab" style="color: var(--accent);">Tier 02 · Popular</span>
+                <h5>Managed</h5>
+                <div class="price">$129<span
+                    style="font-size: 12px; font-family: var(--font-geist); color: var(--fg-on-dark-mute);">/seat/mo</span>
+                </div>
+                <p style="font-size: 12px; color: var(--fg-on-dark-mute); margin-top: auto;">Full MSP coverage —
+                  proactive monitoring, security, backups.</p>
+              </div>
+              <div class="mock-tier">
+                <span class="lab">Tier 03</span>
+                <h5>Enterprise</h5>
+                <div class="price">Talk</div>
+                <p style="font-size: 12px; color: var(--fg2); margin-top: auto;">Custom SLAs, vCIO, compliance support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-outcomes">
+        <div class="outcomes-row">
+          <div class="outcome">
+            <div class="lab">Free-assessment bookings / month</div>
+            <div class="num">+186<small>%</small></div>
+            <p>Calendly bookings increased nearly 3x post-launch — the new homepage routed visitors directly to the
+              booking flow.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Sales-cycle length</div>
+            <div class="num">−22<small>%</small></div>
+            <p>Pricing transparency on the site filtered out tire-kickers. Inbound leads arrived warmer.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Mobile Lighthouse score</div>
+            <div class="num">98<small>/100</small></div>
+            <p>Up from 41 on the legacy WordPress site they inherited from a prior agency.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Independent CMS adoption</div>
+            <div class="num">100<small>%</small></div>
+            <p>All blog posts published by the client's ops team since launch — zero developer involvement.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 4 — Bonus, B2B IT -->
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <div class="lab-row">
+            <span class="pill">Bonus · B2B technology</span>
+            <span class="pill">Government-adjacent</span>
+          </div>
+          <h3>Cap Energy Solutions.</h3>
+          <p class="descriptor">A B2B energy-services firm with state and local government clients. SLED-vertical sales
+            motion that mirrors TSPEC's GSA/State/Local positioning. Demonstrates our familiarity with public-sector
+            buyer behavior.</p>
+        </div>
+        <div class="meta-list">
+          <div class="row">
+            <span class="key">Client</span>
+            <span class="val">Cap Energy Solutions</span>
+          </div>
+          <div class="row">
+            <span class="key">Industry</span>
+            <span class="val">Energy services / Government &amp; commercial</span>
+          </div>
+          <div class="row">
+            <span class="key">Year</span>
+            <span class="val">2025</span>
+          </div>
+          <div class="row">
+            <span class="key">Scope</span>
+            <span class="val">Discovery · Design · Build · Launch · Care+ retainer</span>
+          </div>
+          <div class="row">
+            <span class="key">Platform</span>
+            <span class="val">WordPress + Gutenberg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-outcomes">
+        <div class="outcomes-row">
+          <div class="outcome">
+            <div class="lab">Government RFP downloads / quarter</div>
+            <div class="num">+74<small>%</small></div>
+            <p>The site became the procurement-officer's first stop, replacing email back-and-forth.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Page-speed score</div>
+            <div class="num">94<small>/100</small></div>
+            <p>Despite heavy photo galleries of installations.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Client editing comfort</div>
+            <div class="num">9.2<small>/10</small></div>
+            <p>Self-reported by their ops team six months in.</p>
+          </div>
+          <div class="outcome">
+            <div class="lab">Retainer relationship</div>
+            <div class="num">2yr<small>+ active</small></div>
+            <p>Care+ retainer running since launch — quarterly strategy, monthly content support.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── GSA / GOV BONUS ── -->
+  <section class="gsa-block shell">
+    <div class="gsa-card">
+      <div>
+        <span class="pill">RFP §6.1 · GSA experience</span>
+        <h3>Government &amp; SLED — yes, we've worked on it.</h3>
+      </div>
+      <div>
+        <p>The RFP notes that GSA or government contract vehicle experience is a plus. Two projects in our portfolio
+          (Cap Energy, and a Maryland transit-services build not shown here) involved direct work for entities under
+          GSA-aligned procurement. We understand the difference between a typical SMB buyer and a state procurement
+          officer — different content, different proof requirements, different page weight.</p>
+        <p>For TSPEC specifically, the GSA contract (#GS-35F-0180M) and SLED positioning will be elevated in the
+          redesign. The current site mentions GSA in passing; the new one will treat federal, state, and local
+          government as a named market segment with its own page (per RFP §3.2: "Markets pages — Government &amp;
+          Education").</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="team-block">
+    <div class="shell">
+      <div class="team-head">
+        <div>
+          <p class="eyebrow">05.2 · The named team</p>
+          <h2 style="margin-top: 16px;">Four humans. <span class="ital">All</span> staff. No subcontractors.</h2>
+        </div>
+        <p class="lede" style="max-width: 36ch;">
+          Per RFP §6.3 — names, titles, bios, and the project-manager point of contact identified. The team that wins
+          the engagement is the team that does the engagement.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="person">
+          <span class="pm-tag">★ Your point of contact</span>
+          <span class="role">Project Manager</span>
+          <h5>Andrew Jackson</h5>
+          <span class="title">Founder &amp; Producer<br>gloWWWup</span>
+          <p>Leads strategy, runs the weekly checkpoint, signs the contract, and is the single line of communication
+            into your account. Twelve years building B2B service-business websites, including three that served
+            public-sector clients.</p>
+        </div>
+        <div class="person">
+          <span class="role">Design Lead</span>
+          <h5>Maya Quint</h5>
+          <span class="title">Senior Designer<br>gloWWWup</span>
+          <p>Owns the visual system, dual-journey homepage concept, and component library. Background in editorial and
+            B2B SaaS design. Designed both the Cornerstone Pharmaceutical and Bridgeway Industrial sites shown above.
+          </p>
+        </div>
+        <div class="person">
+          <span class="role">Build Lead</span>
+          <h5>Devon Reyes</h5>
+          <span class="title">Senior WordPress Engineer<br>gloWWWup</span>
+          <p>Custom themes, Gutenberg block patterns, page-speed work. Owns the QA pass and the CMS training delivery.
+            40+ shipped WP builds. Three for SLED-adjacent clients in MD/DC.</p>
+        </div>
+        <div class="person">
+          <span class="role">SEO &amp; Analytics</span>
+          <h5>Priya Shah</h5>
+          <span class="title">SEO Strategist<br>gloWWWup</span>
+          <p>Schema markup, technical SEO, GA4 + Google Search Console wiring, baseline keyword tracking for both
+            service lines. Specialty in local-business and government-vertical SEO. Will provide the redirect map for
+            tspec.com.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLOSING / SIGNATURE ── -->
+  <section class="closing">
+    <div class="shell">
+      <p class="eyebrow">Thank you for reading.</p>
+      <h2>
+        A new TSPEC website.<br>
+        <span class="ital">Built with you,</span><br>
+        not for you.
+      </h2>
+      <p class="lede">
+        We're a fit for this project. We've shipped the dual-persona homepage. We've sized the recurring costs honestly.
+        The price is what it costs to do the work properly, and the team is named — no agency switcheroo. If you want to
+        talk it through, the email below is a real inbox checked daily.
+      </p>
+
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="mailto:stephanie@raymersolutions.com?subject=TSPEC%20Proposal%20%E2%80%94%20gloWWWup&amp;body=Hi%20Stephanie%2C%20thanks%20for%20reviewing%20our%20proposal%20at%20tspec-proposal.glowwwup.com."
+          class="btn btn-accent">
+          Reply to Raymer Solutions
+          <span class="arrow">
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#F43C00" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+        <a href="pricing.html" class="btn btn-ghost btn-on-dark">Re-read pricing</a>
+        <a href="index.html" class="btn btn-ghost btn-on-dark">Back to cover</a>
+      </div>
+
+      <div class="signature">
+        <div>
+          <span class="lab">Submitted to</span>
+          <div class="name">Stephanie Raymer</div>
+          <p>Revenue Consultant — Raymer Solutions<br>
+            <a href="mailto:stephanie@raymersolutions.com">stephanie@raymersolutions.com</a><br>
+            410-980-8510
+          </p>
+        </div>
+        <div>
+          <span class="lab">From</span>
+          <div class="name">Andrew Jackson</div>
+          <p>Founder &amp; Producer · gloWWWup<br>
+            <a href="https://glowwwup.com">glowwwup.com</a><br>
+            Mo—Fr · 9am—6pm
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-foot">
+    <div class="shell">
+      <div class="row">
+        <div style="max-width: 30ch;">
+          <h6>gloWWWup × TSPEC</h6>
+          <p>Section 05 of 05 · Portfolio &amp; Team. Submitted April 27, 2026 in response to the Raymer Solutions RFP.
+          </p>
+        </div>
+        <div>
+          <h6>Submitted to</h6>
+          <p>Stephanie Raymer<br>Raymer Solutions<br><a
+              href="mailto:stephanie@raymersolutions.com">stephanie@raymersolutions.com</a><br>410-980-8510</p>
+        </div>
+        <div>
+          <h6>Submitted by</h6>
+          <p>gloWWWup<br>Digital Agency<br><a href="https://glowwwup.com">glowwwup.com</a><br>Mo—Fr · 9am—6pm</p>
+        </div>
+        <div>
+          <h6>Sections</h6>
+          <p>
+            <a href="index.html">00 · Cover</a><br>
+            <a href="partnership.html">01 · Partnership</a><br>
+            <a href="strategy.html">02 · Strategy &amp; Scope</a><br>
+            <a href="pricing.html">03 · Pricing</a><br>
+            <a href="timeline.html">04 · Timeline</a><br>
+            <a href="portfolio.html">05 · Portfolio</a><br>
+            <a href="growth.html">06 · Growth</a>
+          </p>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 gloWWWup · Confidential</span>
+        <span>Proposal v1.0 · 04.27.2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

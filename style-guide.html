@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gloWWWup · Style Guide</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  body { background: var(--gw-cream); color: var(--gw-black); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 56px 40px 120px; }
+  .nav-pill {
+    position: sticky; top: 16px; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: rgba(255,255,255,.78); backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,0,0,.06); border-radius: 999px;
+    padding: 10px 14px 10px 22px; margin: 0 auto 64px;
+    width: calc(100% - 32px);
+  }
+  @media (max-width: 480px) {
+    .nav-pill img { height: 22px; }
+    .nav-pill { padding: 8px 12px 8px 16px; }
+  }
+  .nav-pill img { height: 28px; }
+  .nav-pill .links { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+  .nav-pill .links a { color: #000; cursor: pointer; transition: color .16s var(--ease-out); }
+  .nav-pill .links a:hover { color: var(--gw-orange); }
+  .nav-pill .cta {
+    background: #000; color: #fff; padding: 9px 18px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+  }
+
+  .hero h1 {
+    font-size: clamp(64px, 12vw, 170px);
+    font-weight: 700; line-height: .96;
+    letter-spacing: -0.04em;
+    margin: 0 0 32px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero h1 .accent { color: var(--gw-orange); }
+  .hero h1 .italic { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: .85em; }
+  .hero p { font-size: 20px; color: rgba(0,0,0,.6); max-width: 60ch; line-height: 1.45; }
+
+  /* Section anchor */
+  section.block { padding: 88px 0; border-top: 1px solid rgba(0,0,0,.1); }
+  .eyebrow {
+    font-family: var(--font-geist);
+    font-size: 12px; font-weight: 500; letter-spacing: .08em;
+    text-transform: uppercase; color: rgba(0,0,0,.5);
+    margin: 0 0 16px;
+  }
+  .section-title {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 700; line-height: 1; letter-spacing: -.04em;
+    margin: 0 0 48px;
+  }
+  .lede { font-size: 22px; line-height: 1.4; color: rgba(0,0,0,.6); max-width: 60ch; margin: 0 0 56px; letter-spacing: -.01em; }
+
+  /* COLORS */
+  .palette { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .swatch {
+    border-radius: 24px; overflow: hidden; border: 1px solid rgba(0,0,0,.06); background: #fff;
+  }
+  .swatch .chip { height: 220px; }
+  .swatch .meta { padding: 18px 22px 22px; }
+  .swatch .name { font-size: 22px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 4px; }
+  .swatch .hex { font-family: var(--font-geist); font-size: 13px; color: rgba(0,0,0,.55); margin: 0 0 6px; }
+  .swatch .role { font-size: 13px; color: rgba(0,0,0,.55); margin: 0; line-height: 1.4; }
+
+  /* TYPE */
+  .type-row {
+    display: grid; grid-template-columns: 160px 1fr 220px;
+    gap: 32px; align-items: baseline;
+    padding: 24px 0; border-top: 1px solid rgba(0,0,0,.08);
+  }
+  .type-row:first-child { border-top: none; padding-top: 0; }
+  .type-row .meta { font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.55); line-height: 1.5; }
+  .type-row .specimen { line-height: 1; letter-spacing: -.04em; font-weight: 700; }
+  .type-row .css { font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.5); text-align: right; }
+  .specimen-hero { font-size: 110px; }
+  .specimen-h1 { font-size: 80px; }
+  .specimen-h2 { font-size: 64px; }
+  .specimen-h3 { font-size: 48px; }
+  .specimen-h4 { font-size: 40px; font-weight: 500; }
+  .specimen-h5 { font-size: 32px; }
+  .specimen-h6 { font-size: 28px; font-weight: 500; }
+
+  .type-body-row { padding: 22px 0; border-top: 1px solid rgba(0,0,0,.08); display: grid; grid-template-columns: 160px 1fr 220px; gap: 32px; align-items: baseline; }
+  .type-body-row:first-child { border-top: none; padding-top: 0; }
+  .type-body-row .meta { font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.55); line-height: 1.5; }
+  .type-body-row .css { font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.5); text-align: right; }
+  .p1 { font-size: 32px; font-weight: 500; line-height: 1.2; letter-spacing: -.02em; }
+  .p2 { font-size: 24px; font-weight: 500; line-height: 1.2; letter-spacing: -.02em; }
+  .p3 { font-size: 20px; font-weight: 500; line-height: 1.3; }
+  .sub-1 { font-size: 20px; line-height: 1.3; }
+  .sub-2 { font-size: 18px; line-height: 1.5; letter-spacing: -.02em; }
+  .sub-3 { font-size: 16px; line-height: 1.3; }
+  .geist { font-family: var(--font-geist); }
+
+  /* SPACING */
+  .spacing-grid { display: grid; gap: 14px; }
+  .sp-row { display: grid; grid-template-columns: 110px 1fr 80px; align-items: center; gap: 18px; }
+  .sp-row .label { font-family: var(--font-geist); font-size: 13px; color: rgba(0,0,0,.6); }
+  .sp-row .bar { height: 16px; background: var(--gw-orange); border-radius: 4px; }
+  .sp-row .px { font-family: var(--font-geist); font-size: 13px; color: rgba(0,0,0,.5); }
+
+  /* RADII */
+  .radii { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+  .radii .item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .radii .box { width: 100%; aspect-ratio: 1; background: #fff; border: 1px solid rgba(0,0,0,.06); }
+  .radii .label { font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.55); }
+
+  /* SHADOWS */
+  .shadows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .shadows .card { background: #fff; border-radius: 24px; padding: 28px 30px; min-height: 140px; }
+  .shadows .label { font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.5); margin: 0 0 6px; }
+  .shadows .name { font-size: 18px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
+
+  /* BUTTONS */
+  .button-grid { display: grid; grid-template-columns: 200px 1fr; gap: 22px; align-items: center; }
+  .button-grid .label { font-family: var(--font-geist); font-size: 13px; color: rgba(0,0,0,.55); }
+  .button-grid .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-demo {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 8px 13px 22px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-family: var(--font-sans); font-size: 15px; font-weight: 500; letter-spacing: -.01em;
+    cursor: pointer; transition: background .18s var(--ease-out), color .18s var(--ease-out);
+  }
+  .btn-demo .arrow {
+    width: 30px; height: 30px; border-radius: 999px; background: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .btn-demo .arrow svg { width: 12px; height: 12px; }
+  .b-primary { background: #000; color: #fff; }
+  .b-primary:hover { background: var(--gw-orange); }
+  .b-accent { background: var(--gw-orange); color: #fff; }
+  .b-ghost { background: transparent; color: #000; border-color: rgba(0,0,0,.18); padding: 13px 22px; }
+  .b-ghost:hover { background: #000; color: #fff; }
+
+  /* FORM */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; max-width: 720px; }
+  .form-grid label { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-geist); font-size: 12px; color: rgba(0,0,0,.55); }
+  .field { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 16px; padding: 14px 18px; font-family: var(--font-sans); font-size: 16px; outline: none; transition: border-color .16s; }
+  .field:focus { border-color: #000; }
+  textarea.field { resize: none; min-height: 110px; grid-column: 1/-1; }
+
+  /* ICONS */
+  .icon-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
+  .icon-cell { background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 16px; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px; }
+  .icon-cell img { width: 32px; height: 32px; }
+  .icon-cell span { font-family: var(--font-geist); font-size: 10px; color: rgba(0,0,0,.5); text-align: center; }
+
+  /* LOGO */
+  .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-radius: 24px; overflow: hidden; border: 1px solid rgba(0,0,0,.06); }
+  .logo-cell { padding: 56px 32px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 220px; }
+  .logo-cell .lab { position: absolute; top: 14px; left: 16px; font-family: var(--font-geist); font-size: 11px; color: rgba(0,0,0,.5); }
+  .logo-cell.dark .lab { color: rgba(255,255,255,.5); }
+  .logo-cell img { max-height: 110px; max-width: 80%; }
+  .logo-cell.dark img { filter: invert(1); }
+
+  /* IMAGERY */
+  .img-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .img-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
+
+  /* CLIENT LOGOS */
+  .clients { display: flex; gap: 56px; align-items: center; flex-wrap: wrap; padding: 32px; background: #fff; border-radius: 24px; }
+  .clients img { height: 36px; opacity: .8; }
+
+  /* DO / DON'T */
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .demo-card {
+    background: #fff; border-radius: 24px; padding: 28px 30px; position: relative;
+    border-top: 4px solid var(--gw-orange);
+  }
+  .demo-card.bad { border-top-color: rgba(0,0,0,.15); }
+  .demo-card .tag {
+    position: absolute; top: 16px; right: 18px;
+    font-family: var(--font-geist); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--gw-orange);
+  }
+  .demo-card.bad .tag { color: rgba(0,0,0,.4); }
+  .demo-card h4 { font-size: 20px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 10px; }
+  .demo-card p { font-size: 14px; color: rgba(0,0,0,.6); line-height: 1.5; margin: 0; }
+
+  /* TONE */
+  .voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .voice-card { background: #fff; border-radius: 24px; padding: 28px 32px; border: 1px solid rgba(0,0,0,.06); }
+  .voice-card .label { font-family: var(--font-geist); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: rgba(0,0,0,.5); margin: 0 0 12px; }
+  .voice-card blockquote { font-size: 22px; font-weight: 700; letter-spacing: -.03em; line-height: 1.15; margin: 0 0 12px; }
+  .voice-card .why { font-size: 14px; color: rgba(0,0,0,.55); line-height: 1.5; margin: 0; }
+
+  /* SEMANTIC SURFACES */
+  .surfaces-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 56px; }
+  .surface-card {
+    border-radius: 24px; padding: 32px 36px; min-height: 280px;
+    display: flex; flex-direction: column; gap: 14px; position: relative;
+    border: 1px solid var(--border);
+  }
+  .surface-card .label-row {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-geist); font-size: 11px; letter-spacing:.06em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .surface-card .label-row .role { opacity: .55; }
+  .surface-card .label-row .var { opacity: .8; font-weight: 600; }
+  .surface-card h4 { font-size: 28px; font-weight: 700; letter-spacing:-.03em; line-height: 1.05; margin: 0; }
+  .surface-card p { font-size: 15px; line-height: 1.5; margin: 0; }
+  .surface-card .pairing {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;
+    font-family: var(--font-geist); font-size: 11px;
+  }
+  .surface-card .chiplet {
+    padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; opacity: .65;
+  }
+  .s-cream  { background: #EEE9E3; color: #000; }
+  .s-grey   { background: #F6F6F6; color: #000; }
+  .s-white  { background: #FFFFFF; color: #000; }
+  .s-dope   { background: #141414; color: #fff; border-color: rgba(255,255,255,.08); }
+  .s-orange { background: #F43C00; color: #fff; border-color: rgba(255,255,255,.18); }
+  .s-orange-soft { background: #FFE9DF; color: #5A1500; }
+
+  /* TOKEN PAIRINGS TABLE */
+  .pairings-table {
+    width: 100%; background: #fff; border-radius: 24px; overflow: hidden;
+    border: 1px solid var(--border); border-collapse: separate; border-spacing: 0;
+    font-family: var(--font-geist); font-size: 13px;
+  }
+  .pairings-table thead th {
+    text-align: left; padding: 16px 22px; font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .06em; color: rgba(0,0,0,.5);
+    background: #FAF8F5; border-bottom: 1px solid var(--border);
+  }
+  .pairings-table td {
+    padding: 14px 22px; border-bottom: 1px solid rgba(0,0,0,.05);
+    vertical-align: middle;
+  }
+  .pairings-table tr:last-child td { border-bottom: none; }
+  .pairings-table .swatch-dot {
+    display: inline-block; width: 18px; height: 18px; border-radius: 6px;
+    border: 1px solid rgba(0,0,0,.08); vertical-align: middle; margin-right: 10px;
+  }
+  .pairings-table .var-name { font-weight: 600; color: #000; }
+  .pairings-table .role { color: rgba(0,0,0,.55); }
+  .pairings-table .demo {
+    padding: 6px 10px; border-radius: 6px; font-family: var(--font-sans); font-size: 13px;
+    display: inline-block;
+  }
+
+  /* DARK BAND */
+  .dark-band { background: var(--gw-dope-black); color: #fff; padding: 96px 0; margin: 64px -40px 0; }
+  .dark-band .inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .dark-band h2 { color: #fff; font-size: clamp(40px, 6vw, 80px); font-weight: 700; letter-spacing: -.04em; line-height: 1; margin: 0 0 24px; }
+  .dark-band p { color: rgba(255,255,255,.6); max-width: 60ch; font-size: 18px; line-height: 1.5; }
+  .dark-band .eyebrow { color: rgba(255,255,255,.5); }
+
+  @media (max-width: 900px) {
+    .palette, .icon-grid { grid-template-columns: repeat(2, 1fr); }
+    .icon-grid { grid-template-columns: repeat(4, 1fr); }
+    .type-row, .type-body-row { grid-template-columns: 1fr; }
+    .nav-pill .links { display: none; }
+    .pair, .voice-grid, .button-grid, .form-grid, .logo-grid, .shadows, .img-grid { grid-template-columns: 1fr; }
+    .radii { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav-pill">
+    <img src="assets/logo-glowwwup.png" alt="gloWWWup">
+    <div class="links">
+      <a href="#colors">Colors</a>
+      <a href="#surfaces">Surfaces</a>
+      <a href="#type">Type</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#components">Components</a>
+      <a href="#brand">Brand</a>
+      <a href="#voice">Voice</a>
+    </div>
+    <a class="cta" href="#voice">View Brand →</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Style Guide · v1</p>
+    <h1>The <span class="accent">gloWWWup</span><br>visual <span class="italic">system</span>.</h1>
+    <p>Everything you need to design on-brand for gloWWWup Digital Agency — colors, type, components, voice. Built from the live site at glowwwup.com and ready to copy into mocks, decks, or production code.</p>
+  </header>
+
+  <!-- ============ COLORS ============ -->
+  <section class="block" id="colors">
+    <p class="eyebrow">01 / Colors</p>
+    <h2 class="section-title">A four-color brand.</h2>
+    <p class="lede">Most pages are essentially black-on-cream. Orange is rare and decisive — when it appears, it owns the moment. Dope-black sets up high-contrast bands between cream sections.</p>
+
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip" style="background:#F43C00"></div>
+        <div class="meta">
+          <p class="name">Primary Orange</p>
+          <p class="hex">#F43C00</p>
+          <p class="role">Hover/active states, single accent moments. Never on body text.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#000"></div>
+        <div class="meta">
+          <p class="name">Black</p>
+          <p class="hex">#000000</p>
+          <p class="role">Primary text. Pill button fills. Wordmark.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#141414"></div>
+        <div class="meta">
+          <p class="name">Dope Black</p>
+          <p class="hex">#141414</p>
+          <p class="role">Background for inverted sections — testimonials, banners.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#fff; border-bottom: 1px solid rgba(0,0,0,.08)"></div>
+        <div class="meta">
+          <p class="name">Pure White</p>
+          <p class="hex">#FFFFFF</p>
+          <p class="role">Card surface on cream. Type on dark sections.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#EEE9E3"></div>
+        <div class="meta">
+          <p class="name">Cream</p>
+          <p class="hex">#EEE9E3</p>
+          <p class="role">Signature warm page background. Default canvas.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#F6F6F6"></div>
+        <div class="meta">
+          <p class="name">Grey</p>
+          <p class="hex">#F6F6F6</p>
+          <p class="role">Secondary section background. Subtle separation.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:rgba(0,0,0,.3); background-color: #B3B3B3"></div>
+        <div class="meta">
+          <p class="name">Black 30%</p>
+          <p class="hex">rgba(0,0,0,.30)</p>
+          <p class="role">Muted text, captions, eyebrow labels.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:linear-gradient(180deg,#EEE9E3 0%, #EEE9E3 50%, #141414 50%, #141414 100%)"></div>
+        <div class="meta">
+          <p class="name">Cream + Dope</p>
+          <p class="hex">Section blocking</p>
+          <p class="role">The signature rhythm: cream → dark → cream.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEMANTIC SURFACES ============ -->
+  <section class="block" id="surfaces">
+    <p class="eyebrow">02 / Semantic Surfaces</p>
+    <h2 class="section-title">Surfaces with intent.</h2>
+    <p class="lede">Raw hexes are nicknames; <em>semantic surfaces</em> are job descriptions. Each surface declares its background, the foreground that pairs with it, the borders that work on it, and the moments it's appropriate to use. Reach for these in product code — never `#F43C00` directly.</p>
+
+    <div class="surfaces-grid">
+      <div class="surface-card s-cream">
+        <div class="label-row"><span class="role">Default Page Canvas</span><span class="var">--bg</span></div>
+        <h4>Cream — the warm default.</h4>
+        <p>The page starts here. Cards float above it, photography sits on it, body type lives on it. 80% of the brand's surface area.</p>
+        <div class="pairing">
+          <span class="chiplet">fg: --fg1 / #000</span>
+          <span class="chiplet">muted: --fg2 / 30% black</span>
+          <span class="chiplet">border: --border / 10% black</span>
+          <span class="chiplet">surface above: --surface / #FFF</span>
+        </div>
+      </div>
+
+      <div class="surface-card s-white">
+        <div class="label-row"><span class="role">Card / Elevated Surface</span><span class="var">--surface</span></div>
+        <h4>White — the lift surface.</h4>
+        <p>Cards, form fields, modal sheets. Always sits <em>above</em> cream or grey, never as the page itself. Keeps photography crisp and forms calm.</p>
+        <div class="pairing">
+          <span class="chiplet">fg: --fg1 / #000</span>
+          <span class="chiplet">muted: --fg2 / 30% black</span>
+          <span class="chiplet">border: --border / 10% black</span>
+          <span class="chiplet">accent: --accent / orange</span>
+        </div>
+      </div>
+
+      <div class="surface-card s-grey">
+        <div class="label-row"><span class="role">Alt Section Background</span><span class="var">--bg-alt</span></div>
+        <h4>Grey — quiet separation.</h4>
+        <p>Use sparingly to delineate a long page into chapters without going full dark. Pairs with white cards for double-elevation.</p>
+        <div class="pairing">
+          <span class="chiplet">fg: --fg1 / #000</span>
+          <span class="chiplet">surface above: --surface / #FFF</span>
+          <span class="chiplet">border: --border</span>
+        </div>
+      </div>
+
+      <div class="surface-card s-dope">
+        <div class="label-row"><span class="role">Inverted Section</span><span class="var">--bg-dark</span></div>
+        <h4>Dope-black — the foil.</h4>
+        <p>Testimonials, dark-band CTAs, footer. Foreground flips to white. Borders go translucent-white. Orange still works as the accent.</p>
+        <div class="pairing">
+          <span class="chiplet" style="color:rgba(255,255,255,.7)">fg: --fg-on-dark</span>
+          <span class="chiplet" style="color:rgba(255,255,255,.7)">muted: --fg-on-dark-muted</span>
+          <span class="chiplet" style="color:rgba(255,255,255,.7)">border: --border-dark</span>
+          <span class="chiplet" style="color:rgba(255,255,255,.7)">accent: --accent</span>
+        </div>
+      </div>
+
+      <div class="surface-card s-orange">
+        <div class="label-row"><span class="role">Accent Surface</span><span class="var">--accent</span></div>
+        <h4>Orange — one moment per view.</h4>
+        <p>A single CTA. A single accent dot. The 404 hero. Foreground pairs with white. Never the canvas of a full page or large card.</p>
+        <div class="pairing">
+          <span class="chiplet" style="color:rgba(255,255,255,.85)">on-accent: --on-accent / #FFF</span>
+          <span class="chiplet" style="color:rgba(255,255,255,.85)">no body text on this</span>
+        </div>
+      </div>
+
+      <div class="surface-card s-orange-soft">
+        <div class="label-row"><span class="role">Accent Tint (derived)</span><span class="var">color-mix(--accent, --bg)</span></div>
+        <h4>Orange tint — soft callout.</h4>
+        <p>For badges, "new" pills, hover wells. Derived, not a base token — generate via <code style="font-family:var(--font-geist); font-size:12px; background:rgba(0,0,0,.08); padding:1px 6px; border-radius:4px">color-mix(in oklab, var(--accent) 18%, var(--bg))</code>.</p>
+        <div class="pairing">
+          <span class="chiplet">fg: dark orange #5A1500</span>
+          <span class="chiplet">use: badges, soft hover</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Token reference</h3>
+    <table class="pairings-table">
+      <thead>
+        <tr><th style="width:200px">Token</th><th style="width:160px">Resolves to</th><th>Role</th><th style="width:200px">Preview</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="swatch-dot" style="background:#EEE9E3"></span><span class="var-name">--bg</span></td><td>#EEE9E3</td><td class="role">Default page canvas</td><td><span class="demo" style="background:#EEE9E3; color:#000">Cream canvas</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#F6F6F6"></span><span class="var-name">--bg-alt</span></td><td>#F6F6F6</td><td class="role">Alt section background</td><td><span class="demo" style="background:#F6F6F6; color:#000">Grey alt</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#141414"></span><span class="var-name">--bg-dark</span></td><td>#141414</td><td class="role">Inverted section background</td><td><span class="demo" style="background:#141414; color:#fff">Dope-black</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#FFFFFF"></span><span class="var-name">--surface</span></td><td>#FFFFFF</td><td class="role">Card / elevated surface</td><td><span class="demo" style="background:#fff; color:#000; box-shadow:0 1px 2px rgba(0,0,0,.06)">Card surface</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#000"></span><span class="var-name">--fg1</span></td><td>#000000</td><td class="role">Primary text on light surfaces</td><td><span class="demo" style="background:#EEE9E3; color:#000">Primary copy</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#B3B3B3"></span><span class="var-name">--fg2</span></td><td>rgba(0,0,0,.30)</td><td class="role">Muted text, captions, eyebrows</td><td><span class="demo" style="background:#EEE9E3; color:rgba(0,0,0,.30)">Muted copy</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#fff; border-color:#ccc"></span><span class="var-name">--fg-on-dark</span></td><td>#FFFFFF</td><td class="role">Primary text on dark surfaces</td><td><span class="demo" style="background:#141414; color:#fff">On dope-black</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:rgba(255,255,255,.6); background-color:#999"></span><span class="var-name">--fg-on-dark-muted</span></td><td>rgba(255,255,255,.60)</td><td class="role">Muted text on dark surfaces</td><td><span class="demo" style="background:#141414; color:rgba(255,255,255,.6)">Muted on dark</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#F43C00"></span><span class="var-name">--accent</span></td><td>#F43C00</td><td class="role">Single-moment accent (CTA, hover)</td><td><span class="demo" style="background:#F43C00; color:#fff">Accent surface</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#fff; border-color:#ccc"></span><span class="var-name">--on-accent</span></td><td>#FFFFFF</td><td class="role">Foreground on accent</td><td><span class="demo" style="background:#F43C00; color:#fff">On accent</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:rgba(0,0,0,.1); background-color:#E5E5E5"></span><span class="var-name">--border</span></td><td>rgba(0,0,0,.10)</td><td class="role">Hairline on light surfaces</td><td><span class="demo" style="background:#fff; color:#000; border:1px solid rgba(0,0,0,.10)">Hairline</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:rgba(0,0,0,.2); background-color:#CCC"></span><span class="var-name">--border-strong</span></td><td>rgba(0,0,0,.20)</td><td class="role">Stronger divider, focused state</td><td><span class="demo" style="background:#fff; color:#000; border:1px solid rgba(0,0,0,.20)">Strong border</span></td></tr>
+        <tr><td><span class="swatch-dot" style="background:#fff; border-color:#aaa"></span><span class="var-name">--border-dark</span></td><td>rgba(255,255,255,.10)</td><td class="role">Hairline on dark surfaces</td><td><span class="demo" style="background:#141414; color:#fff; border:1px solid rgba(255,255,255,.10)">Hairline on dark</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ TYPE ============ -->
+  <section class="block" id="type">
+    <p class="eyebrow">03 / Typography</p>
+    <h2 class="section-title">Bold and stacked.</h2>
+    <p class="lede">Helvetica Neue (Inter as a free fallback) for everything display and body. Geist for small UI labels. Tracking sits at -4% on display, -2% on body — non-negotiable for the brand voice.</p>
+
+    <h3 style="font-size:24px; font-weight:600; margin:0 0 24px; letter-spacing:-.02em">Display Scale</h3>
+    <div class="type-row"><div class="meta">170 / 100% / -4%<br>Bold</div><div class="specimen specimen-hero">Hero</div><div class="css">.h-hero</div></div>
+    <div class="type-row"><div class="meta">96 / 100% / -4%<br>Bold</div><div class="specimen specimen-h1">Heading 1</div><div class="css">h1, .h1</div></div>
+    <div class="type-row"><div class="meta">80 / 100% / -4%<br>Bold</div><div class="specimen specimen-h2">Heading 2</div><div class="css">h2, .h2</div></div>
+    <div class="type-row"><div class="meta">64 / 100% / -4%<br>Bold</div><div class="specimen specimen-h3">Heading 3</div><div class="css">h3, .h3</div></div>
+    <div class="type-row"><div class="meta">56 / 110% / -4%<br>Medium</div><div class="specimen specimen-h4">Heading 4</div><div class="css">h4, .h4</div></div>
+    <div class="type-row"><div class="meta">48 / 110% / -4%<br>Bold</div><div class="specimen specimen-h5">Heading 5</div><div class="css">h5, .h5</div></div>
+    <div class="type-row"><div class="meta">40 / 110% / -4%<br>Medium</div><div class="specimen specimen-h6">Heading 6</div><div class="css">h6, .h6</div></div>
+
+    <h3 style="font-size:24px; font-weight:600; margin: 64px 0 24px; letter-spacing:-.02em">Body & Subtitle</h3>
+    <div class="type-body-row"><div class="meta">32 / 120% / -2% · Medium</div><div class="p1">Paragraph 1 — lead body copy used under hero or in pull-quotes.</div><div class="css">.p1</div></div>
+    <div class="type-body-row"><div class="meta">24 / 120% / -2% · Medium</div><div class="p2">Paragraph 2 — supporting paragraphs and feature blurbs.</div><div class="css">.p2</div></div>
+    <div class="type-body-row"><div class="meta">20 / 130% · Medium</div><div class="p3">Paragraph 3 — body inside cards.</div><div class="css">.p3</div></div>
+    <div class="type-body-row"><div class="meta">20 / 130% · Medium</div><div class="sub-1">Subtitle 1 — supporting text near headlines.</div><div class="css">.subtitle-1-medium</div></div>
+    <div class="type-body-row"><div class="meta">18 / 150% / -2% · Regular</div><div class="sub-2">Subtitle 2 — long-form running paragraph that wraps to multiple lines comfortably at 1.5 leading.</div><div class="css">.subtitle-2</div></div>
+    <div class="type-body-row"><div class="meta">16 / 130% · Regular</div><div class="sub-3">Subtitle 3 — small UI text for captions and meta labels.</div><div class="css">.subtitle-3-regular</div></div>
+    <div class="type-body-row"><div class="meta">Geist · 13 · upper · .08em</div><div class="geist" style="font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:rgba(0,0,0,.55)">Eyebrow / Section Label</div><div class="css">.eyebrow</div></div>
+    <div class="type-body-row"><div class="meta">Helvetica · 18 · M · -2%</div><div><a href="#" style="font-size:18px; font-weight:500; letter-spacing:-.02em; border-bottom: 1px solid #000; padding-bottom: 1px; color:#000">Inline link with underline →</a></div><div class="css">a, .link</div></div>
+  </section>
+
+  <!-- ============ SPACING ============ -->
+  <section class="block" id="spacing">
+    <p class="eyebrow">04 / Spacing & Shape</p>
+    <h2 class="section-title">8pt rhythm. Generous radii.</h2>
+    <p class="lede">The system rests on an 8pt scale with bold corner radii and restrained shadows. Color blocking does the heavy lifting, not depth.</p>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-bottom: 80px">
+      <div>
+        <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Spacing Scale</h3>
+        <div class="spacing-grid">
+          <div class="sp-row"><span class="label">--sp-1</span><span class="bar" style="width:4px"></span><span class="px">4px</span></div>
+          <div class="sp-row"><span class="label">--sp-2</span><span class="bar" style="width:8px"></span><span class="px">8px</span></div>
+          <div class="sp-row"><span class="label">--sp-3</span><span class="bar" style="width:12px"></span><span class="px">12px</span></div>
+          <div class="sp-row"><span class="label">--sp-4</span><span class="bar" style="width:16px"></span><span class="px">16px</span></div>
+          <div class="sp-row"><span class="label">--sp-5</span><span class="bar" style="width:24px"></span><span class="px">24px</span></div>
+          <div class="sp-row"><span class="label">--sp-6</span><span class="bar" style="width:32px"></span><span class="px">32px</span></div>
+          <div class="sp-row"><span class="label">--sp-7</span><span class="bar" style="width:48px"></span><span class="px">48px</span></div>
+          <div class="sp-row"><span class="label">--sp-8</span><span class="bar" style="width:64px"></span><span class="px">64px</span></div>
+          <div class="sp-row"><span class="label">--sp-9</span><span class="bar" style="width:96px"></span><span class="px">96px</span></div>
+          <div class="sp-row"><span class="label">--sp-10</span><span class="bar" style="width:128px"></span><span class="px">128px</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Corner Radii</h3>
+        <div class="radii">
+          <div class="item"><div class="box" style="border-radius:6px"></div><span class="label">xs · 6</span></div>
+          <div class="item"><div class="box" style="border-radius:12px"></div><span class="label">sm · 12</span></div>
+          <div class="item"><div class="box" style="border-radius:20px"></div><span class="label">md · 20</span></div>
+          <div class="item"><div class="box" style="border-radius:28px"></div><span class="label">lg · 28</span></div>
+          <div class="item"><div class="box" style="border-radius:40px"></div><span class="label">xl · 40</span></div>
+          <div class="item"><div class="box" style="border-radius:999px"></div><span class="label">pill · 999</span></div>
+        </div>
+        <h3 style="font-size:20px; font-weight:600; margin: 56px 0 20px; letter-spacing:-.01em">Elevation</h3>
+        <div class="shadows">
+          <div class="card" style="box-shadow:0 1px 2px rgba(0,0,0,.06)"><p class="label">--shadow-sm</p><p class="name">Hairline</p></div>
+          <div class="card" style="box-shadow:0 8px 24px rgba(0,0,0,.08)"><p class="label">--shadow-md</p><p class="name">Card lift</p></div>
+          <div class="card" style="box-shadow:0 24px 60px rgba(0,0,0,.12)"><p class="label">--shadow-lg</p><p class="name">Hero block</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPONENTS ============ -->
+  <section class="block" id="components">
+    <p class="eyebrow">05 / Components</p>
+    <h2 class="section-title">Pills. Cards. Hairlines.</h2>
+    <p class="lede">Buttons are always 999px-rounded. Cards are 20–28px rounded with hairline borders, padded generously. Forms sit on white with no visible border until focus.</p>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Buttons</h3>
+    <div class="button-grid" style="margin-bottom:64px">
+      <span class="label">Primary</span>
+      <div class="row">
+        <button class="btn-demo b-primary">Book a Call <span class="arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+      </div>
+      <span class="label">Accent</span>
+      <div class="row">
+        <button class="btn-demo b-accent">Get Started Today <span class="arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="#F43C00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+      </div>
+      <span class="label">Ghost</span>
+      <div class="row">
+        <button class="btn-demo b-ghost">Learn more</button>
+      </div>
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Form</h3>
+    <form class="form-grid" style="margin-bottom: 64px" onsubmit="event.preventDefault()">
+      <label>Name<input class="field" placeholder="Jane Cooper"></label>
+      <label>Email<input class="field" placeholder="jane@studio.com"></label>
+      <label style="grid-column:1/-1">Tell us about your project
+        <textarea class="field" placeholder="Brief, scope, timeline…"></textarea>
+      </label>
+      <div style="grid-column:1/-1; display:flex; justify-content:flex-end">
+        <button class="btn-demo b-primary" type="submit">Send Message <span class="arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+      </div>
+    </form>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Benefit Cards</h3>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px">
+      <div style="background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:24px; padding:28px">
+        <div style="width:52px; height:52px; border-radius:16px; background:#EEE9E3; display:flex; align-items:center; justify-content:center; margin-bottom:18px"><img src="assets/icons/card-01.svg" style="width:28px; height:28px" alt=""></div>
+        <h4 style="font-size:22px; font-weight:700; letter-spacing:-.02em; margin:0 0 10px">Fixed Monthly Price</h4>
+        <p style="margin:0; color:rgba(0,0,0,.55); font-size:14px; line-height:1.5">Transparent subscription with no hidden costs — continuous design support.</p>
+      </div>
+      <div style="background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:24px; padding:28px">
+        <div style="width:52px; height:52px; border-radius:16px; background:#EEE9E3; display:flex; align-items:center; justify-content:center; margin-bottom:18px"><img src="assets/icons/card-02.svg" style="width:28px; height:28px" alt=""></div>
+        <h4 style="font-size:22px; font-weight:700; letter-spacing:-.02em; margin:0 0 10px">Unlimited Tasks</h4>
+        <p style="margin:0; color:rgba(0,0,0,.55); font-size:14px; line-height:1.5">Submit as many requests as you need. We'll work through them in priority order.</p>
+      </div>
+      <div style="background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:24px; padding:28px">
+        <div style="width:52px; height:52px; border-radius:16px; background:#EEE9E3; display:flex; align-items:center; justify-content:center; margin-bottom:18px"><img src="assets/icons/card-04.svg" style="width:28px; height:28px" alt=""></div>
+        <h4 style="font-size:22px; font-weight:700; letter-spacing:-.02em; margin:0 0 10px">Quick Turnaround</h4>
+        <p style="margin:0; color:rgba(0,0,0,.55); font-size:14px; line-height:1.5">Rapid delivery without sacrificing quality on any size project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRAND ============ -->
+  <section class="block" id="brand">
+    <p class="eyebrow">06 / Brand</p>
+    <h2 class="section-title">Logo, icons, imagery.</h2>
+    <p class="lede">The wordmark gloWWWup with italic serif "agency" descender is the centerpiece. Icons are stroke-based monoline at 3px. Photography is warm, full-bleed, real.</p>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Logo Lockup</h3>
+    <div class="logo-grid" style="margin-bottom:56px">
+      <div class="logo-cell" style="background:#EEE9E3"><span class="lab">black on cream</span><img src="assets/logo-glowwwup.png" alt=""></div>
+      <div class="logo-cell" style="background:#fff"><span class="lab">orange · accent</span><img src="assets/logo-glowwwup-orange.png" alt=""></div>
+      <div class="logo-cell dark" style="background:#141414"><span class="lab">on dope-black (inverted)</span><img src="assets/logo-glowwwup.png" alt=""></div>
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Iconography</h3>
+    <div class="icon-grid" style="margin-bottom:56px">
+      <div class="icon-cell"><img src="assets/icons/card-01.svg"><span>card-01</span></div>
+      <div class="icon-cell"><img src="assets/icons/card-02.svg"><span>card-02</span></div>
+      <div class="icon-cell"><img src="assets/icons/card-04.svg"><span>card-04</span></div>
+      <div class="icon-cell"><img src="assets/icons/card-05.svg"><span>card-05</span></div>
+      <div class="icon-cell"><img src="assets/icons/card-06.svg"><span>card-06</span></div>
+      <div class="icon-cell"><img src="assets/icons/benefits.svg"><span>benefits</span></div>
+      <div class="icon-cell"><img src="assets/icons/style-icon-01.svg"><span>style-01</span></div>
+      <div class="icon-cell"><img src="assets/icons/huge-icon.svg"><span>huge</span></div>
+      <div class="icon-cell"><img src="assets/icons/huge-icon-02.svg"><span>huge-02</span></div>
+      <div class="icon-cell"><img src="assets/icons/play.svg"><span>play</span></div>
+      <div class="icon-cell"><img src="assets/icons/arrow.svg"><span>arrow</span></div>
+      <div class="icon-cell"><img src="assets/icons/dropdown.svg"><span>dropdown</span></div>
+      <div class="icon-cell"><img src="assets/icons/social-facebook.svg"><span>facebook</span></div>
+      <div class="icon-cell"><img src="assets/icons/social-twitter.svg"><span>twitter</span></div>
+      <div class="icon-cell"><img src="assets/icons/social-linkedin.svg"><span>linkedin</span></div>
+      <div class="icon-cell"><img src="assets/icons/social-instagram.svg"><span>instagram</span></div>
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Photography</h3>
+    <div class="img-grid" style="margin-bottom: 56px">
+      <img src="assets/imagery/hero.webp" alt="">
+      <img src="assets/imagery/about-v1.webp" alt="">
+      <img src="assets/imagery/work-keelra.png" alt="">
+      <img src="assets/imagery/work-willo.png" alt="">
+      <img src="assets/imagery/work-justine.png" alt="">
+      <img src="assets/imagery/blog-01.webp" alt="">
+      <img src="assets/imagery/blog-03.webp" alt="">
+      <img src="assets/imagery/blog-04.webp" alt="">
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 0 0 24px; letter-spacing:-.01em">Client Logo Marquee</h3>
+    <div class="clients">
+      <img src="assets/client-logos/logo-01.svg">
+      <img src="assets/client-logos/logo-02.svg">
+      <img src="assets/client-logos/logo-03.svg">
+      <img src="assets/client-logos/logo-04.svg">
+      <img src="assets/client-logos/logo-05.svg">
+      <img src="assets/client-logos/logo-06.svg">
+      <img src="assets/client-logos/logo-07.svg">
+    </div>
+  </section>
+
+  <!-- ============ VOICE ============ -->
+  <section class="block" id="voice">
+    <p class="eyebrow">07 / Voice</p>
+    <h2 class="section-title">Bold. Direct. A little cocky.</h2>
+    <p class="lede">Imperative phrases stacked into vertical poems. Numbers when they help the brag. Em dashes. Smart quotes. Never emoji. We talk like an agency that wants to win the pitch.</p>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <p class="label">Hero pattern</p>
+        <blockquote>Growth Hacking. Push Limits. Pull Together. and Unite the Culture.</blockquote>
+        <p class="why">Period-terminated fragments. Stacked vertically. Lower-case "and" is intentional.</p>
+      </div>
+      <div class="voice-card">
+        <p class="label">Comparative brag</p>
+        <blockquote>Why convert at 2% when you can convert at 20%?</blockquote>
+        <p class="why">Numbers in service of the punchline. Question form, no question apology.</p>
+      </div>
+      <div class="voice-card">
+        <p class="label">Subscription strapline</p>
+        <blockquote>Delivering digital experiences through versatile subscription</blockquote>
+        <p class="why">Service-pitch register. Confident. No verbs of obligation.</p>
+      </div>
+      <div class="voice-card">
+        <p class="label">Footer hours</p>
+        <blockquote>Mo—Fr · 9am—6pm</blockquote>
+        <p class="why">Em dash, abbreviated weekdays. Clean and editorial, not clinical.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin: 56px 0 24px; letter-spacing:-.01em">Do / Don't</h3>
+    <div class="pair">
+      <div class="demo-card">
+        <span class="tag">Do</span>
+        <h4>Stack short, period-terminated phrases.</h4>
+        <p>"Push Limits. Pull Together." Each line earns its own breath. Tracking at -4%, line-height 100%.</p>
+      </div>
+      <div class="demo-card bad">
+        <span class="tag">Don't</span>
+        <h4>Write smooth marketing prose.</h4>
+        <p>"We are committed to delivering best-in-class results that empower our valued clients." Off-brand. Generic. No.</p>
+      </div>
+      <div class="demo-card">
+        <span class="tag">Do</span>
+        <h4>Use cream as the default canvas.</h4>
+        <p>Black ink on warm #EEE9E3. Photography full-bleed inside 28px-rounded frames.</p>
+      </div>
+      <div class="demo-card bad">
+        <span class="tag">Don't</span>
+        <h4>Reach for gradients or emoji.</h4>
+        <p>No bluish-purple gradients. No 🚀. No glassmorphism. Color blocking does the work.</p>
+      </div>
+      <div class="demo-card">
+        <span class="tag">Do</span>
+        <h4>Reserve orange for one moment per view.</h4>
+        <p>One CTA in orange. One accent dot. One link hover. The orange owns the moment because it's rare.</p>
+      </div>
+      <div class="demo-card bad">
+        <span class="tag">Don't</span>
+        <h4>Color body text orange.</h4>
+        <p>Orange on body type fights legibility and dilutes the accent. Keep body in black, accents tactical.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="dark-band">
+    <div class="inner">
+      <p class="eyebrow">Ready to build?</p>
+      <h2>Just one more step to make your perfect choice.</h2>
+      <p>Open <code style="background:rgba(255,255,255,.1); padding:2px 8px; border-radius:6px; font-family:var(--font-geist); font-size:.9em">colors_and_type.css</code> for the full token set, or jump into <code style="background:rgba(255,255,255,.1); padding:2px 8px; border-radius:6px; font-family:var(--font-geist); font-size:.9em">ui_kits/website/index.html</code> for a click-thru reference site.</p>
+    </div>
+  </div>
+
+</div>
+<script>
+  // smooth scroll for nav anchors
+  document.querySelectorAll('.nav-pill a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

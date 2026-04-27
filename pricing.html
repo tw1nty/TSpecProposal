@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing &amp; Ownership · gloWWWup × TSPEC</title>
+  <meta name="description"
+    content="Itemized project pricing for the TSPEC website redesign, plus every recurring platform cost — vendor named, cost disclosed, ownership in TSPEC's name.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .page-head {
+      padding: clamp(48px, 6vw, 96px) 0 clamp(40px, 5vw, 64px);
+    }
+
+    .page-head .eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-geist);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+    }
+
+    .page-head .eyebrow-row a:hover {
+      color: var(--accent);
+    }
+
+    .page-head h1 {
+      font-size: clamp(48px, 9vw, 120px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      margin: 0 0 28px;
+      max-width: 14ch;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .page-head h1 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* PRICING TABLE — the centerpiece */
+    .pricing-block {
+      padding: clamp(24px, 4vw, 56px) 0 clamp(64px, 8vw, 112px);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 1000px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* The featured "project total" card */
+    .pricing-card {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      border-radius: var(--r-xl);
+      padding: clamp(36px, 4vw, 56px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card::after {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -160px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 60, 0, .34) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .pricing-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-card .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      gap: 16px;
+    }
+
+    .pricing-card .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-card .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .pricing-card .pill.dim {
+      background: rgba(255, 255, 255, .08);
+      color: var(--fg-on-dark-mute);
+    }
+
+    .pricing-card h2 {
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1;
+      color: var(--fg-on-dark);
+      margin-bottom: 12px;
+    }
+
+    .pricing-card .desc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--fg-on-dark-mute);
+      max-width: 50ch;
+    }
+
+    .price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 32px 0 28px;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      margin: 32px 0;
+    }
+
+    .price-block .amount {
+      font-size: clamp(64px, 8vw, 104px);
+      font-weight: 700;
+      letter-spacing: -.05em;
+      line-height: 1;
+      color: var(--accent);
+      font-feature-settings: "tnum";
+    }
+
+    .price-block .unit {
+      font-family: var(--font-geist);
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg-on-dark-mute);
+    }
+
+    .price-block .unit b {
+      display: block;
+      color: var(--fg-on-dark);
+      font-weight: 600;
+    }
+
+    /* Itemized line items inside dark card */
+    .line-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-bottom: 32px;
+    }
+
+    .line-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    @media (max-width: 480px) {
+      .line-item {
+        grid-template-columns: auto 1fr;
+      }
+
+      .line-item .price {
+        grid-column: 2;
+        margin-top: -8px;
+      }
+
+      .line-item .ord {
+        display: none;
+      }
+    }
+
+    .line-item:first-child {
+      border-top: none;
+      padding-top: 8px;
+    }
+
+    .line-item .ord {
+      font-family: var(--font-geist);
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: .04em;
+      width: 28px;
+    }
+
+    .line-item .body h6 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      color: var(--fg-on-dark);
+      margin-bottom: 2px;
+    }
+
+    .line-item .body p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg-on-dark-mute);
+    }
+
+    .line-item .price {
+      font-family: var(--font-geist);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg-on-dark);
+      letter-spacing: -.01em;
+      font-feature-settings: "tnum";
+      white-space: nowrap;
+    }
+
+    .line-item.total {
+      background: rgba(244, 60, 0, .08);
+      margin: 16px -16px 0;
+      padding: 22px 16px;
+      border-radius: var(--r-md);
+      border-top: 1px solid rgba(244, 60, 0, .4);
+    }
+
+    .line-item.total .body h6 {
+      font-size: 18px;
+    }
+
+    .line-item.total .price {
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    .pricing-card .ft {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pricing-card .ft .meta {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--fg-on-dark-mute);
+    }
+
+    .pricing-card .ft .meta b {
+      color: var(--fg-on-dark);
+      font-weight: 600;
+    }
+
+    /* Side card — Why this number */
+    .side-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: clamp(28px, 3vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .side-card .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+
+    .side-card h3 {
+      font-size: clamp(24px, 2.6vw, 32px);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.05;
+    }
+
+    .side-card h3 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .side-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--fg2);
+    }
+
+    .side-card .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .side-card .pillar {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .side-card .pillar:first-child {
+      border-top: none;
+      padding-top: 6px;
+    }
+
+    .side-card .pillar .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .side-card .pillar h6 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 2px;
+    }
+
+    .side-card .pillar p {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--fg2);
+    }
+
+    .side-card .terms {
+      margin-top: auto;
+      padding: 16px 18px;
+      background: var(--bg);
+      border-radius: var(--r-md);
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.55;
+    }
+
+    .side-card .terms strong {
+      color: var(--fg1);
+      font-weight: 600;
+    }
+
+    /* RECURRING COSTS BLOCK */
+    .recurring-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+      background: var(--bg-alt);
+    }
+
+    .recurring-head {
+      margin-bottom: clamp(32px, 4vw, 56px);
+    }
+
+    .recurring-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 16ch;
+      margin-top: 16px;
+    }
+
+    .recurring-head h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .recurring-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .summary-cell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px;
+    }
+
+    .summary-cell .lab {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+      margin-bottom: 12px;
+    }
+
+    .summary-cell .num {
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .summary-cell.accent .num {
+      color: var(--accent);
+    }
+
+    .summary-cell .num small {
+      font-size: 14px;
+      font-family: var(--font-geist);
+      color: var(--fg2);
+      font-weight: 500;
+      letter-spacing: 0;
+      margin-left: 6px;
+    }
+
+    .summary-cell p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--fg2);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .recurring-summary {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .summary-cell {
+        padding: 20px;
+      }
+    }
+
+    /* Recurring costs table */
+    .rc-table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .rc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .rc-table thead th {
+      text-align: left;
+      background: var(--bg);
+      padding: 16px 20px;
+      font-family: var(--font-geist);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--fg3);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rc-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .rc-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .rc-table .item-name {
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: var(--fg1);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .rc-table .item-desc {
+      font-size: 12px;
+      color: var(--fg2);
+      line-height: 1.45;
+    }
+
+    .rc-table .vendor {
+      font-family: var(--font-geist);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg1);
+    }
+
+    .rc-table .vendor small {
+      display: block;
+      color: var(--fg3);
+      font-size: 11px;
+      letter-spacing: .04em;
+      margin-top: 3px;
+    }
+
+    .rc-table .cost {
+      font-family: var(--font-geist);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: right;
+      font-feature-settings: "tnum";
+      white-space: nowrap;
+    }
+
+    .rc-table .cost small {
+      display: block;
+      color: var(--fg2);
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: .04em;
+      margin-top: 3px;
+    }
+
+    .rc-table .owner {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--fg2);
+      letter-spacing: .04em;
+    }
+
+    .rc-table .owner.tspec {
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      padding: 4px 8px;
+      border-radius: var(--r-pill);
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .rc-table tr.total-row td {
+      background: var(--bg);
+      font-weight: 600;
+    }
+
+    .rc-table tr.total-row .item-name {
+      font-size: 16px;
+    }
+
+    .rc-table tr.total-row .cost {
+      font-size: 18px;
+    }
+
+    @media (max-width: 760px) {
+      .rc-table thead {
+        display: none;
+      }
+
+      .rc-table,
+      .rc-table tbody,
+      .rc-table tr,
+      .rc-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .rc-table tr {
+        border-bottom: 4px solid var(--border);
+        padding: 8px 0;
+      }
+
+      .rc-table td {
+        padding: 8px 16px;
+        border-bottom: none;
+      }
+
+      .rc-table .cost {
+        text-align: left;
+      }
+    }
+
+    /* RETAINER TIERS */
+    .retainer-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .retainer-head {
+      margin-bottom: clamp(32px, 4vw, 56px);
+    }
+
+    .retainer-head h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 18ch;
+      margin-top: 16px;
+    }
+
+    .retainer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .tier {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: clamp(28px, 3vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+
+    .tier.featured {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-8px);
+    }
+
+    .tier.featured::before {
+      content: 'Most teams pick this';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-geist);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+    }
+
+    .tier .tier-name {
+      font-family: var(--font-geist);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .tier h3 {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .tier .price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tier.featured .price {
+      border-color: var(--border-dark);
+    }
+
+    .tier .price .amt {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .tier .price .per {
+      font-family: var(--font-geist);
+      font-size: 13px;
+      color: var(--fg2);
+      letter-spacing: .04em;
+    }
+
+    .tier.featured .price .per {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .tier .summary {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg2);
+    }
+
+    .tier.featured .summary {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .tier ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .tier ul li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--fg2);
+    }
+
+    .tier.featured ul li {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .tier ul li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tier .pick {
+      margin-top: 8px;
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      transition: background .2s var(--ease-out), color .2s var(--ease-out);
+    }
+
+    .tier .pick.primary {
+      background: #000;
+      color: #fff;
+    }
+
+    .tier .pick.primary:hover {
+      background: var(--accent);
+    }
+
+    .tier .pick.accent {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .tier .pick.ghost {
+      background: transparent;
+      color: var(--fg1);
+      border: 1px solid var(--border-strong);
+    }
+
+    .tier .pick.ghost:hover {
+      background: var(--fg1);
+      color: #fff;
+    }
+
+    @media (max-width: 1000px) {
+      .retainer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tier.featured {
+        transform: none;
+        margin: 16px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tier {
+        padding: 24px;
+      }
+    }
+
+    /* TOTAL OWNERSHIP */
+    .ownership-block {
+      background: var(--bg-dark);
+      color: var(--fg-on-dark);
+      padding: clamp(64px, 8vw, 112px) 0;
+    }
+
+    .ownership-block .eyebrow {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .ownership-block .lede {
+      color: var(--fg-on-dark-mute);
+    }
+
+    .ownership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: start;
+    }
+
+    .ownership-grid h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      color: var(--fg-on-dark);
+      max-width: 14ch;
+    }
+
+    .ownership-grid h2 .accent {
+      color: var(--accent);
+    }
+
+    .ownership-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+
+    .ownership-row {
+      background: var(--bg-dark);
+      padding: 22px 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      align-items: baseline;
+    }
+
+    .ownership-row:hover {
+      background: rgba(244, 60, 0, .06);
+    }
+
+    .ownership-row h6 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: var(--fg-on-dark);
+      margin-bottom: 4px;
+    }
+
+    .ownership-row p {
+      font-size: 13px;
+      color: var(--fg-on-dark-mute);
+      line-height: 1.5;
+    }
+
+    .ownership-row .stamp {
+      font-family: var(--font-geist);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    @media (max-width: 760px) {
+      .ownership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ownership-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .ownership-row .stamp {
+        text-align: left;
+      }
+    }
+
+    /* CTA */
+    .next-cta {
+      padding: clamp(64px, 8vw, 120px) 0;
+      background: var(--bg);
+    }
+
+    .next-cta h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      max-width: 18ch;
+      margin-bottom: 24px;
+    }
+
+    .next-cta h2 .ital {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .next-cta .lede {
+      max-width: 60ch;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="shell">
+    <nav class="nav-pill">
+      <div class="brand">
+        <img src="assets/img/glowwwup-wordmark.png" alt="gloWWWup">
+        <span class="x">×</span>
+        <span>TSPEC</span>
+      </div>
+      <div class="links">
+        <a href="index.html">Cover</a>
+        <a href="partnership.html">Partnership</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="portfolio.html">Portfolio</a>
+      </div>
+      <a href="timeline.html" class="cta">Continue →</a>
+    </nav>
+  </header>
+
+  <!-- ── PAGE HEAD ── -->
+  <section class="page-head shell">
+    <div class="eyebrow-row">
+      <span><a href="strategy.html">← Strategy</a></span>
+      <span>03 / 05 · Pricing &amp; Ownership</span>
+      <span><a href="timeline.html">Timeline →</a></span>
+    </div>
+    <h1>The honest <span class="ital">number.</span></h1>
+    <p class="lede" style="max-width: 60ch;">
+      A single, recommended price for each line item the RFP asked us to itemize. No tiered "Bronze / Silver / Gold"
+      maze. No options designed to make the middle one look reasonable. One line. One price. Take it or push back on it.
+    </p>
+  </section>
+
+  <!-- ── PRICING TABLE ── -->
+  <section class="pricing-block shell">
+    <div class="pricing-grid">
+
+      <!-- Featured pricing card -->
+      <div class="pricing-card">
+        <div class="top">
+          <div class="badge-row">
+            <span class="pill">★ Project total</span>
+            <span class="pill dim">Fixed bid</span>
+          </div>
+          <span
+            style="font-family: var(--font-geist); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-on-dark-mute);">v1.0
+            · 04.27.26</span>
+        </div>
+
+        <h2>The TSPEC website,<br>delivered in 10 weeks.</h2>
+        <p class="desc">Twelve discrete deliverables. Every one priced, scoped, and locked at signature. Change orders
+          only on your initiation, in writing, with a delta quote.</p>
+
+        <div class="price-block">
+          <span class="amount">$52,000</span>
+          <span class="unit">USD<br><b>Project total</b></span>
+        </div>
+
+        <div class="line-items">
+
+          <div class="line-item">
+            <span class="ord">01.</span>
+            <div class="body">
+              <h6>Discovery &amp; Strategy</h6>
+              <p>Stakeholder interviews, dual-journey workshops, tspec.com audit, written strategy brief.</p>
+            </div>
+            <span class="price">$4,500</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">02.</span>
+            <div class="body">
+              <h6>Wireframes &amp; UX Design</h6>
+              <p>Information architecture, lo-fi wires for 7 page templates, mobile + desktop, two revision rounds.</p>
+            </div>
+            <span class="price">$5,800</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">03.</span>
+            <div class="body">
+              <h6>Visual Design — Homepage + Interior pages</h6>
+              <p>Dual-journey homepage concept, 13 service-page templates, 9 standard pages, full component library.</p>
+            </div>
+            <span class="price">$11,500</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">04.</span>
+            <div class="body">
+              <h6>Front-end Development</h6>
+              <p>Hand-coded HTML/CSS/JS. No framework bloat. Lighthouse-tuned. Animations and accessibility baked in.
+              </p>
+            </div>
+            <span class="price">$9,500</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">05.</span>
+            <div class="body">
+              <h6>Back-end Development — WordPress build</h6>
+              <p>Custom theme on top of Gutenberg native blocks. Reusable block patterns. ACF for structured fields.</p>
+            </div>
+            <span class="price">$7,200</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">06.</span>
+            <div class="body">
+              <h6>Content Migration</h6>
+              <p>~23 pages migrated from tspec.com onto the new IA, lightly restructured. No new copywriting, per RFP.
+              </p>
+            </div>
+            <span class="price">$3,800</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">07.</span>
+            <div class="body">
+              <h6>Lead Capture Forms + CRM/email</h6>
+              <p>Gravity Forms with conditional logic, spam protection, routing into your inbox + optional CRM hook.</p>
+            </div>
+            <span class="price">$1,800</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">08.</span>
+            <div class="body">
+              <h6>Appointment Booking — Calendly</h6>
+              <p>Two event types ("Site Survey," "Free IT Assessment") embedded with brand styling. TSPEC owns the
+                account.</p>
+            </div>
+            <span class="price">$900</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">09.</span>
+            <div class="body">
+              <h6>SEO setup, schema, GA4 + GSC</h6>
+              <p>Technical SEO, redirect map, structured data, Google Analytics 4 wired to all conversions, Search
+                Console verified.</p>
+            </div>
+            <span class="price">$2,400</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">10.</span>
+            <div class="body">
+              <h6>QA &amp; cross-browser/device testing</h6>
+              <p>Real-device QA, BrowserStack matrix, accessibility (axe + NVDA), performance &lt; 3s on 4G, full QA
+                report.</p>
+            </div>
+            <span class="price">$1,800</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">11.</span>
+            <div class="body">
+              <h6>CMS Staff Training</h6>
+              <p>Two recorded 90-minute sessions for TSPEC staff. Written admin handbook delivered as a PDF.</p>
+            </div>
+            <span class="price">$1,200</span>
+          </div>
+
+          <div class="line-item">
+            <span class="ord">12.</span>
+            <div class="body">
+              <h6>30-day Post-launch Support</h6>
+              <p>Anything broken, anything missing, anything you need tweaked — covered for 30 days at no extra cost.
+              </p>
+            </div>
+            <span class="price">$1,600</span>
+          </div>
+
+          <div class="line-item total">
+            <span class="ord">∑</span>
+            <div class="body">
+              <h6>Project total — fixed bid</h6>
+              <p>50% at signature. 25% on design approval. 25% at launch.</p>
+            </div>
+            <span class="price">$52,000</span>
+          </div>
+        </div>
+
+        <div class="ft">
+          <span class="meta"><b>Validity:</b> 30 days from 04.27.2026</span>
+          <span class="meta"><b>Includes:</b> 30-day post-launch support · 2 revision rounds · all source files</span>
+          <span class="meta"><b>Excludes:</b> Stock photography, paid fonts, third-party plugin licenses (paid by
+            TSPEC)</span>
+        </div>
+      </div>
+
+      <!-- Side card -->
+      <aside class="side-card">
+        <span class="pill">Why this number</span>
+        <h3>Priced to <span class="ital">land,</span> not to negotiate.</h3>
+        <p>This is what a 23-page B2B website with two distinct customer journeys, custom WordPress build, content
+          migration, and a 30-day support tail actually costs to do well. It's competitive against Maryland/DC peer
+          agencies and below the typical HubSpot-CMS bid for the same scope.</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <span class="lab">A.</span>
+            <div>
+              <h6>Fixed bid, not hourly</h6>
+              <p>You see the number. We hold the risk. No hourly creep, no "engineering time" line items at the end.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="lab">B.</span>
+            <div>
+              <h6>Two revision rounds, named</h6>
+              <p>Two formal rounds at wireframes and at design. A third round triggers a change order — predictable,
+                never punitive.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="lab">C.</span>
+            <div>
+              <h6>50 / 25 / 25 payment schedule</h6>
+              <p>Half at signature aligns interests. Quarter at design approval gates the build. Quarter at launch
+                protects you.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="lab">D.</span>
+            <div>
+              <h6>Source files included</h6>
+              <p>You get the Figma design files, theme code repository, and full credentials at handover. No hostage
+                scenario.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="terms">
+          <strong>Per RFP §6.5:</strong> Every line item the RFP requires is on this page, separately priced. No
+          bundling. No "engagement fees." If a line item should be split further, name it on a clarification call.
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ── RECURRING COSTS (§4.1) ── -->
+  <section class="recurring-block">
+    <div class="shell">
+      <div class="recurring-head">
+        <p class="eyebrow">4.1 · Recurring platform costs</p>
+        <h2>Every dollar TSPEC will pay <span class="ital">after</span> launch.</h2>
+        <p class="lede" style="margin-top: 24px; max-width: 60ch;">
+          These are the only ongoing costs. Each is paid by TSPEC directly to the named vendor — none flow through
+          gloWWWup, none appear on a gloWWWup invoice, none renew in our name. Disclosure required by RFP §4.1 and
+          gladly given.
+        </p>
+      </div>
+
+      <!-- Summary cells -->
+      <div class="recurring-summary">
+        <div class="summary-cell">
+          <div class="lab">Year 1 — recurring</div>
+          <div class="num">$1,140<small>/yr</small></div>
+          <p>All platform fees combined. Paid directly to vendors below. Roughly $95/month equivalent.</p>
+        </div>
+        <div class="summary-cell">
+          <div class="lab">Year 2+ — recurring</div>
+          <div class="num">$1,140<small>/yr</small></div>
+          <p>Identical to year 1. No anniversary surprise. License renewals kept in TSPEC's calendar.</p>
+        </div>
+        <div class="summary-cell accent">
+          <div class="lab">Bundled into our retainer</div>
+          <div class="num">$0<small>/yr</small></div>
+          <p>Zero. Every cost below is in TSPEC's name. We never hold a credential or collect a markup on a third-party
+            tool.</p>
+        </div>
+      </div>
+
+      <!-- Itemized recurring table -->
+      <div class="rc-table-wrap">
+        <table class="rc-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Service</th>
+              <th style="width: 25%;">Recommended vendor</th>
+              <th style="width: 18%; text-align: right;">Cost</th>
+              <th style="width: 12%;">Account owner</th>
+              <th style="width: 13%;">Renewal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item-name">Managed WordPress Hosting</div>
+                <div class="item-desc">Server, daily backups, free SSL, free CDN, malware scanning, 24/7 support.</div>
+              </td>
+              <td>
+                <div class="vendor">Kinsta — Starter<small>kinsta.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$420 /yr<small>$35 /mo annual</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Forms &amp; lead capture</div>
+                <div class="item-desc">Conditional forms, spam protection, CRM integrations, exportable submission
+                  archive.</div>
+              </td>
+              <td>
+                <div class="vendor">Gravity Forms — Elite<small>gravityforms.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$259 /yr<small>1-site license</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Appointment booking</div>
+                <div class="item-desc">Standard plan covers the two event types (Site Survey, IT Assessment) and 1
+                  calendar.</div>
+              </td>
+              <td>
+                <div class="vendor">Calendly — Standard<small>calendly.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$144 /yr<small>$12 /mo annual</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">SEO plugin</div>
+                <div class="item-desc">Schema, sitemap, internal-linking suggestions, redirects manager, Search Console
+                  pipe.</div>
+              </td>
+              <td>
+                <div class="vendor">RankMath — Pro Business<small>rankmath.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$129 /yr<small>1-site license</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Security &amp; firewall</div>
+                <div class="item-desc">WP-aware web application firewall, malware scanning, brute-force lockdown, login
+                  hardening.</div>
+              </td>
+              <td>
+                <div class="vendor">Wordfence — Premium<small>wordfence.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$119 /yr<small>1-site license</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Off-site backups</div>
+                <div class="item-desc">Daily automated off-site backups to S3 or Backblaze. Hosting backups are kept for
+                  14 days; this is the safety net.</div>
+              </td>
+              <td>
+                <div class="vendor">UpdraftPlus — Premium<small>updraftplus.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$70 /yr<small>1-site license</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Performance &amp; caching</div>
+                <div class="item-desc">Page caching, lazy-loading, CSS/JS minification, database optimization. Required
+                  to hit the &lt;3s target.</div>
+              </td>
+              <td>
+                <div class="vendor">WP Rocket — Single<small>wp-rocket.me</small></div>
+              </td>
+              <td>
+                <div class="cost">$59 /yr<small>1-site license</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Annual</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">SSL certificate</div>
+                <div class="item-desc">Wildcard SSL with auto-renewal. Included with Kinsta hosting at no additional
+                  cost.</div>
+              </td>
+              <td>
+                <div class="vendor">Let's Encrypt (via Kinsta)<small>included</small></div>
+              </td>
+              <td>
+                <div class="cost">$0 /yr<small>included with host</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">Auto</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">CDN &amp; DNS</div>
+                <div class="item-desc">Global edge network, DDoS protection, DNS management. Free tier covers TSPEC's
+                  traffic comfortably.</div>
+              </td>
+              <td>
+                <div class="vendor">Cloudflare — Free<small>cloudflare.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$0 /yr<small>free tier</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">N/A</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Premium theme &amp; page-builder license</div>
+                <div class="item-desc">Not required. We deliver a custom theme — TSPEC owns the source code outright. No
+                  third-party theme dependency.</div>
+              </td>
+              <td>
+                <div class="vendor">None<small>custom theme delivered</small></div>
+              </td>
+              <td>
+                <div class="cost">$0 /yr<small>not applicable</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">N/A</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Analytics &amp; Search Console</div>
+                <div class="item-desc">Google Analytics 4, Google Search Console, Google Tag Manager. All free, all in
+                  TSPEC accounts.</div>
+              </td>
+              <td>
+                <div class="vendor">Google<small>google.com</small></div>
+              </td>
+              <td>
+                <div class="cost">$0 /yr<small>free</small></div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">N/A</span></td>
+            </tr>
+            <tr class="total-row">
+              <td>
+                <div class="item-name">Total recurring — Year 1 onward</div>
+                <div class="item-desc">All vendors billed directly to TSPEC. ~$95/month equivalent.</div>
+              </td>
+              <td>
+                <div class="vendor">11 line items</div>
+              </td>
+              <td>
+                <div class="cost">$1,140 /yr</div>
+              </td>
+              <td><span class="owner tspec">TSPEC</span></td>
+              <td><span class="owner">—</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OPTIONAL RETAINER ── -->
+  <section class="retainer-block shell">
+    <div class="retainer-head">
+      <p class="eyebrow">Optional · post-launch support</p>
+      <h2>Stay with us. Or don't. <em>Both fine.</em></h2>
+      <p class="lede" style="margin-top: 24px; max-width: 60ch;">
+        30 days of post-launch support is in the project price. After that, three options. Pick what fits — or pick
+        nothing and call us when you need us. We do not require a retainer.
+      </p>
+    </div>
+
+    <div class="retainer-grid">
+
+      <div class="tier">
+        <span class="tier-name">Tier 01</span>
+        <h3>None.</h3>
+        <div class="price">
+          <span class="amt">$0</span>
+          <span class="per">/month</span>
+        </div>
+        <p class="summary">Walk away clean after the 30-day support window. The site is yours, the credentials are
+          yours, the docs are yours. Call us hourly if and when you need us.</p>
+        <ul>
+          <li>Site, code, &amp; credentials — yours</li>
+          <li>Hourly rate available: $145/hr</li>
+          <li>Email response within 2 business days</li>
+          <li>No retainer commitment</li>
+          <li>Renewal not required</li>
+        </ul>
+        <a href="mailto:hello@glowwwup.com?subject=TSPEC%20%E2%80%94%20no%20retainer%2C%20stay%20in%20touch"
+          class="pick ghost">Walk away clean</a>
+      </div>
+
+      <div class="tier featured">
+        <span class="tier-name" style="color: var(--accent);">Tier 02</span>
+        <h3>Care.</h3>
+        <div class="price">
+          <span class="amt" style="color: var(--accent);">$750</span>
+          <span class="per">/month</span>
+        </div>
+        <p class="summary">The popular pick. Covers the maintenance work TSPEC's team would otherwise inherit — without
+          putting you on the hook for someone full-time.</p>
+        <ul>
+          <li>4 hours of agency time / month</li>
+          <li>Plugin &amp; WP core updates, weekly</li>
+          <li>Off-site backup verification, weekly</li>
+          <li>Monthly performance &amp; uptime report</li>
+          <li>Monthly SEO snapshot &amp; keyword tracking</li>
+          <li>Priority email — same-business-day response</li>
+          <li>Hours roll over up to 8</li>
+        </ul>
+        <a href="mailto:hello@glowwwup.com?subject=TSPEC%20%E2%80%94%20Care%20retainer" class="pick accent">Choose
+          Care</a>
+      </div>
+
+      <div class="tier">
+        <span class="tier-name">Tier 03</span>
+        <h3>Care+.</h3>
+        <div class="price">
+          <span class="amt">$1,800</span>
+          <span class="per">/month</span>
+        </div>
+        <p class="summary">Care, plus growth work. New service-page builds, A/B testing, conversion optimization, blog
+          publishing — for teams that want the site to keep earning, not just keep running.</p>
+        <ul>
+          <li>10 hours of agency time / month</li>
+          <li>Everything in Care</li>
+          <li>New service-page builds (1–2 / month)</li>
+          <li>Conversion-rate testing &amp; iteration</li>
+          <li>Blog post publishing &amp; SEO formatting</li>
+          <li>Quarterly strategy review (60 min)</li>
+          <li>Hours roll over up to 20</li>
+        </ul>
+        <a href="mailto:hello@glowwwup.com?subject=TSPEC%20%E2%80%94%20Care%2B%20retainer" class="pick primary">Choose
+          Care+</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OWNERSHIP MANIFEST ── -->
+  <section class="ownership-block">
+    <div class="shell">
+      <div class="ownership-grid">
+        <div>
+          <p class="eyebrow">Total ownership manifest</p>
+          <h2 style="margin-top: 16px;">Day-one,<br>everything is in <span class="accent">your name.</span></h2>
+          <p class="lede" style="max-width: 40ch; margin-top: 24px;">
+            Per RFP §8.5, all final deliverables transfer to TSPEC at final payment. Here is exactly what changes hands.
+          </p>
+        </div>
+
+        <div class="ownership-list">
+          <div class="ownership-row">
+            <div>
+              <h6>Domain &amp; DNS</h6>
+              <p>tspec.com remains in TSPEC's registrar account. We never become the registrar of record.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Hosting account (Kinsta)</h6>
+              <p>Account opened in TSPEC's name. Billed to TSPEC. We are added as a collaborator with revocable access.
+              </p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>WordPress install &amp; database</h6>
+              <p>Admin access in TSPEC's name. We get a developer account, also revocable.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Custom theme source code</h6>
+              <p>Delivered as a Git repository. TSPEC controls the repo on day one. No license royalty, no per-seat fee,
+                no ongoing dependency on us.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>All plugin licenses</h6>
+              <p>Gravity Forms, RankMath, WP Rocket, Wordfence, UpdraftPlus — purchased in TSPEC's name. Renewals on
+                your calendar.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Calendly account</h6>
+              <p>Created on a TSPEC email. Bookings flow to your calendar.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Google Analytics 4 + Search Console</h6>
+              <p>Properties owned by a TSPEC Google account. We're added as analyst-level collaborators only.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Cloudflare account</h6>
+              <p>DNS, CDN, security in TSPEC's name. Standard collaborator access for us.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Figma design files</h6>
+              <p>Master design library handed over as an editable Figma file. Includes the component library and the
+                dual-journey homepage concept.</p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+          <div class="ownership-row">
+            <div>
+              <h6>Documentation &amp; training videos</h6>
+              <p>Admin handbook (PDF), brand guideline supplement, two recorded training sessions, content-update SOP.
+              </p>
+            </div>
+            <span class="stamp">TSPEC owns</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="next-cta">
+    <div class="shell">
+      <p class="eyebrow">Next</p>
+      <h2 style="margin-top: 16px;">10 weeks <span class="ital">end to end.</span><br>Phase by phase, on the next page.
+      </h2>
+      <p class="lede">From contract award to launch day, with the dependencies named and the gates marked. The timeline
+        page lays out the calendar and what you, gloWWWup, and Raymer Solutions each owe at each step.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="timeline.html" class="btn btn-primary">
+          See the timeline
+          <span class="arrow">
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#000" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+        <a href="portfolio.html" class="btn btn-ghost">Or skip to portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-foot">
+    <div class="shell">
+      <div class="row">
+        <div style="max-width: 30ch;">
+          <h6>gloWWWup × TSPEC</h6>
+          <p>Section 03 of 05 · Pricing &amp; Ownership. Submitted April 27, 2026 in response to the Raymer Solutions
+            RFP.</p>
+        </div>
+        <div>
+          <h6>Submitted to</h6>
+          <p>Stephanie Raymer<br>Raymer Solutions<br><a
+              href="mailto:stephanie@raymersolutions.com">stephanie@raymersolutions.com</a><br>410-980-8510</p>
+        </div>
+        <div>
+          <h6>Submitted by</h6>
+          <p>gloWWWup<br>Digital Agency<br><a href="https://glowwwup.com">glowwwup.com</a><br>Mo—Fr · 9am—6pm</p>
+        </div>
+        <div>
+          <h6>Sections</h6>
+          <p>
+            <a href="index.html">00 · Cover</a><br>
+            <a href="partnership.html">01 · Partnership</a><br>
+            <a href="strategy.html">02 · Strategy &amp; Scope</a><br>
+            <a href="pricing.html">03 · Pricing</a><br>
+            <a href="timeline.html">04 · Timeline</a><br>
+            <a href="portfolio.html">05 · Portfolio</a><br>
+            <a href="growth.html">06 · Growth</a>
+          </p>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 gloWWWup · Confidential</span>
+        <span>Proposal v1.0 · 04.27.2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
