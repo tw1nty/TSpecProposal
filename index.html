@@ -102,13 +102,13 @@
     }
 
     .brand-row .ours img {
-      min-height: 75px;
+      max-height: 60px;
       height: auto;
       width: auto;
     }
 
     .brand-row .theirs img {
-      min-height: 75px;
+      max-height: 120px;
       height: auto;
       width: auto;
     }
@@ -196,17 +196,7 @@
       overflow: hidden;
     }
 
-    .glance::after {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(244, 60, 0, .32) 0%, transparent 65%);
-      pointer-events: none;
-    }
+
 
     .glance .label {
       font-family: var(--font-geist);
